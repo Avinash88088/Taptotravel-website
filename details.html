@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Details — TapToTravel</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .details-hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: radial-gradient(circle at 50% 0%, rgba(79, 172, 254, 0.1), transparent 70%);
+        }
+
+        .details-content {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            backdrop-filter: blur(12px);
+        }
+
+        .details-content h2 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .details-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .details-content ul {
+            margin-bottom: 24px;
+            padding-left: 24px;
+            color: var(--text-secondary);
+        }
+
+        .details-content li {
+            margin-bottom: 12px;
+            font-size: 1.0625rem;
+        }
+
+        .details-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 40px;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: var(--accent-blue);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                TapToTravel
+            </a>
+            <a href="index.html" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="details-hero">
+            <div class="container">
+                <a href="index.html" class="back-btn">← Back to Home</a>
+                <h1 id="page-title" class="hero-title">Loading...</h1>
+            </div>
+        </section>
+
+        <section class="container">
+            <div id="page-content" class="details-content">
+                <!-- Content will be injected here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; <span id="year">2025</span> TapToTravel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const data = {
+            'step-card': {
+                title: 'Problem Statement & Solution',
+                content: `
+          <p><strong>The Problem:</strong> India's public transport is manual, cash-based, unfair, unorganized, unsafe, and completely non-transparent. Core issues include daily disputes, "no change" (chutta) issues, and lack of data.</p>
+          <p><strong>The Solution:</strong> TapToTravel is a one-stop ecosystem providing NFC/RFID-based seamless travel. It offers:</p>
+          <ul>
+            <li>Instant boarding via NFC tap</li>
+            <li>Fair & transparent pricing based on GPS</li>
+            <li>Offline-first architecture for reliability</li>
+            <li>Digital history & parental tracking</li>
+          </ul>
+        `
+            },
+            'feature-card': {
+                title: 'Value Proposition',
+                content: `
+          <p><strong>Instant, Seamless Travel:</strong> One Tap to Start & End. No OTP, no waiting, no bargaining.</p>
+          <p><strong>For Passengers:</strong></p>
+          <ul>
+            <li>Cashless & transparent payments</li>
+            <li>Real-time live tracking</li>
+            <li>Safety features (SOS, Ride Sharing)</li>
+          </ul>
+          <p><strong>For Drivers:</strong></p>
+          <ul>
+            <li>Zero commission model (SaaS fee)</li>
+            <li>Instant settlement to bank account</li>
+            <li>Smart navigation & demand prediction</li>
+          </ul>
+        `
+            },
+            'driver-feature-item': {
+                title: 'Market Opportunity',
+                content: `
+          <p><strong>Total Addressable Market (TAM):</strong> Entire India public transport market (Buses + Autos + E-rickshaws + Cabs). Average daily spend is ₹20-₹40.</p>
+          <p><strong>Serviceable Obtainable Market (SOM):</strong> Focusing initially on Tier-2/3 cities and college campuses where digital adoption is growing but transport remains analog.</p>
+          <p><strong>Gap:</strong> Uber/Ola are too expensive for daily commute. Public transport is cheap but broken. TapToTravel bridges this gap.</p>
+        `
+            },
+            'hardware-device-img': {
+                title: 'Hardware System',
+                content: `
+          <p><strong>TapToTravel Module:</strong> An advanced, high-efficiency ESP32-based transport module installed in vehicles.</p>
+          <p><strong>Key Components:</strong></p>
+          <ul>
+            <li><strong>ESP32 (Brain):</strong> Dual-core processor with Wi-Fi/BLE</li>
+            <li><strong>PN532 NFC:</strong> For instant card/phone tapping</li>
+            <li><strong>NEO-6M GPS:</strong> For precise location tracking</li>
+            <li><strong>OLED Display:</strong> Shows fare and status</li>
+          </ul>
+          <p><strong>Features:</strong> Offline-first logic, OTA updates, and low power consumption.</p>
+        `
+            },
+            'arch-node': {
+                title: 'Software Architecture',
+                content: `
+          <p><strong>High-Level Structure:</strong> A robust, scalable cloud-native architecture.</p>
+          <ul>
+            <li><strong>Mobile Apps:</strong> Flutter (iOS/Android) for Passengers & Drivers</li>
+            <li><strong>Backend:</strong> Node.js + Firebase Cloud Functions</li>
+            <li><strong>Database:</strong> Firestore (NoSQL) for real-time data</li>
+            <li><strong>AI Engine:</strong> Vira AI for voice assistance and route optimization</li>
+          </ul>
+        `
+            },
+            'contact-item': {
+                title: 'Vira AI Assistant',
+                content: `
+          <p><strong>Truly Conversational AI:</strong> Vira AI provides natural voice and text interaction for users.</p>
+          <p><strong>Capabilities:</strong></p>
+          <ul>
+            <li>12+ Indian languages support (Hindi, English, Marathi, etc.)</li>
+            <li>Real-time query resolution (e.g., "Where is my bus?")</li>
+            <li>Driver support assistant</li>
+          </ul>
+        `
+            }
+        };
+
+        // Parse URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const topic = urlParams.get('topic');
+
+        if (topic && data[topic]) {
+            document.getElementById('page-title').textContent = data[topic].title;
+            document.getElementById('page-content').innerHTML = data[topic].content;
+            document.title = `${data[topic].title} — TapToTravel`;
+        } else {
+            document.getElementById('page-title').textContent = 'Topic Not Found';
+            document.getElementById('page-content').innerHTML = '<p>Sorry, the requested information could not be found.</p>';
+        }
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
