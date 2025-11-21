@@ -10,7 +10,7 @@ container.style.top = '0';
 container.style.left = '0';
 container.style.width = '100%';
 container.style.height = '100%';
-container.style.zIndex = '0';
+container.style.zIndex = '1';
 container.style.pointerEvents = 'none'; // Allow clicks to pass through
 document.body.prepend(container);
 
@@ -178,21 +178,23 @@ const animate = () => {
     camera.rotation.x = Math.sin(time * 0.5) * 0.05;
 
     // 2. Globe Animation (Hero Section)
-    // 2. Globe Animation (Hero Section)
     if (globeGroup) {
         globeGroup.rotation.y -= 0.002;
 
         // Apple-style Zoom Effect
-        // Zoom in based on scroll
         const zoomFactor = 1 + scrollY * 0.003;
         globeGroup.scale.setScalar(1.2 * zoomFactor);
 
-        // Lock Z position relative to camera to prevent flying past it
-        // Keep it 5 units in front of the camera
+        // Lock Z position relative to camera
         globeGroup.position.z = camera.position.z - 5;
 
-        // Fade out as it gets too big (transition to next section)
-        // Starts fading after 200px scroll, fully invisible by 800px
+        // Force center X
+        globeGroup.position.x = 0;
+
+        // Ensure camera looks at the globe
+        camera.lookAt(globeGroup.position);
+
+        // Fade logic
         const fadeStart = 200;
         const fadeEnd = 800;
         let opacity = 1;
@@ -201,20 +203,14 @@ const animate = () => {
             opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
         }
 
-        // Apply opacity to all children materials
         globeGroup.children.forEach(child => {
             if (child.material) {
-                child.material.opacity = Math.max(0, opacity * (child === core ? 1 : 0.3)); // Core is solid, others transparent
+                child.material.opacity = Math.max(0, opacity * (child === core ? 1 : 0.5)); // Increased opacity
                 child.material.transparent = true;
             }
         });
 
         globeGroup.visible = opacity > 0;
-
-        // Center the globe for the zoom effect (override initial position)
-        // Smoothly interpolate X position from 2 (initial) to 0 (centered)
-        const centerProgress = Math.min(1, scrollY / 500);
-        globeGroup.position.x = 2 * (1 - centerProgress);
     }
 
     // 3. Vehicle Animation (Scrollytelling)
@@ -255,25 +251,26 @@ const animate = () => {
     });
 
     // 6. Partners Globe Animation
-    if (partnersGlobe) {
+    // 6. Partners Globe Animation
+    if (partnersGlobeGroup) {
         // Auto rotation
-        partnersGlobe.rotation.y += 0.005;
+        partnersGlobeGroup.rotation.y += 0.005;
 
         // Mouse interaction (simple look-at or rotation influence)
         const targetRotX = (mouseY - window.innerHeight / 2) * 0.001;
         const targetRotY = (mouseX - window.innerWidth / 2) * 0.001;
 
-        partnersGlobe.rotation.x += (targetRotX - partnersGlobe.rotation.x) * 0.05;
-        partnersGlobe.rotation.y += (targetRotY - 0.005) * 0.05; // Blend auto and mouse
+        partnersGlobeGroup.rotation.x += (targetRotX - partnersGlobeGroup.rotation.x) * 0.05;
+        partnersGlobeGroup.rotation.y += (targetRotY - 0.005) * 0.05; // Blend auto and mouse
 
         // Visibility based on scroll (Partners section is near bottom)
         if (scrollPercent > 0.8) {
-            partnersGlobe.visible = true;
+            partnersGlobeGroup.visible = true;
             // Float in
-            partnersGlobe.position.y += (0 - partnersGlobe.position.y) * 0.05;
+            partnersGlobeGroup.position.y += (0 - partnersGlobeGroup.position.y) * 0.05;
         } else {
-            partnersGlobe.visible = false;
-            partnersGlobe.position.y = -10;
+            partnersGlobeGroup.visible = false;
+            partnersGlobeGroup.position.y = -10;
         }
     }
 
@@ -299,8 +296,8 @@ const pGlobeMat = new THREE.MeshBasicMaterial({
     transparent: true,
     opacity: 0.2
 });
-const partnersGlobe = new THREE.Mesh(pGlobeGeo, pGlobeMat);
-partnersGlobeGroup.add(partnersGlobe);
+const partnersGlobeMesh = new THREE.Mesh(pGlobeGeo, pGlobeMat);
+partnersGlobeGroup.add(partnersGlobeMesh);
 
 // Add some connecting lines/network effect
 const pDotsGeo = new THREE.BufferGeometry();
@@ -317,10 +314,10 @@ for (let i = 0; i < pDotsCount * 3; i += 3) {
 pDotsGeo.setAttribute('position', new THREE.BufferAttribute(pDotsPos, 3));
 const pDotsMat = new THREE.PointsMaterial({ size: 0.1, color: 0xffffff });
 const pDots = new THREE.Points(pDotsGeo, pDotsMat);
-partnersGlobe.add(pDots);
+partnersGlobeMesh.add(pDots);
 
 partnersGlobeGroup.position.set(5, -10, -10); // Start hidden
-partnersGlobe = partnersGlobeGroup; // Re-assign for animation loop access
+// partnersGlobe = partnersGlobeGroup; // REMOVED: This was causing the crash. We should use partnersGlobeGroup in animate loop.
 
 animate();
 
