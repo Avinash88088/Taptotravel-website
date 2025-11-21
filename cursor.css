@@ -1,0 +1,89 @@
+/* ============================================
+   Magic Cursor Styles
+   ============================================ */
+
+body {
+    cursor: none !important;
+    /* Hide default cursor */
+}
+
+/* Ensure interactive elements also hide cursor */
+a,
+button,
+.btn,
+input,
+textarea,
+.step-card,
+.feature-card,
+.partner-card {
+    cursor: none !important;
+}
+
+#magic-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    /* Centering handled in JS, but initial offset helps */
+    transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+    mix-blend-mode: difference;
+    /* Cool effect over text */
+    margin-left: -20px;
+    /* Center alignment adjustment */
+    margin-top: -20px;
+}
+
+#magic-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    margin-left: -4px;
+    margin-top: -4px;
+    transition: width 0.2s, height 0.2s;
+}
+
+/* Hover State */
+#magic-cursor.hovered {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: transparent;
+    margin-left: -30px;
+    margin-top: -30px;
+    backdrop-filter: blur(2px);
+}
+
+#magic-cursor-dot.hovered {
+    width: 4px;
+    /* Shrink dot on hover */
+    height: 4px;
+    margin-left: -2px;
+    margin-top: -2px;
+}
+
+/* Click State */
+#magic-cursor.clicking {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(10, 132, 255, 0.5);
+    /* Accent color */
+    margin-left: -15px;
+    margin-top: -15px;
+}
+
+#magic-cursor-dot.clicking {
+    display: none;
+}
