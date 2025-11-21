@@ -164,18 +164,45 @@ window.addEventListener('load', () => {
     });
   });
 
-  // Mobile Menu
+  // Ripple Effect
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      let x = e.clientX - e.target.offsetLeft;
+      let y = e.clientY - e.target.offsetTop;
+
+      let ripples = document.createElement('span');
+      ripples.style.left = x + 'px';
+      ripples.style.top = y + 'px';
+      this.appendChild(ripples);
+
+      setTimeout(() => {
+        ripples.remove()
+      }, 1000);
+    });
+  });
+
+  // Mobile Menu Toggle
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('.nav-menu');
-  if (hamburger && navMenu) {
+
+  if (hamburger) {
     hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
-      if (navMenu.classList.contains('active')) {
-        gsap.fromTo(navMenu, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.3 });
-      }
+
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
     });
   }
 
+  // Close menu when clicking a link
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', false);
+    });
+  });
   // Year Update
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();

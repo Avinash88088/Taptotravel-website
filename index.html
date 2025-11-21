@@ -19,9 +19,9 @@
   <!-- Libraries loaded at bottom for better performance -->
 
   <!-- Main stylesheet -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2">
 
-  <!-- Critical inline styles to ensure visibility -->
+  <!-- Critical inline styles -->
   <style>
     * {
       box-sizing: border-box;
@@ -37,22 +37,16 @@
 
     body {
       min-height: 100vh;
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
+      opacity: 1;
+      visibility: visible;
     }
 
+    /* Ensure content is visible by default - GSAP will override these */
     nav,
     main,
-    section,
-    .container,
-    h1,
-    h2,
-    p,
-    a {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
+    section {
+      opacity: 1;
+      visibility: visible;
     }
 
     .container {
@@ -107,34 +101,34 @@
             <div class="hero-cta">
               <a href="#contact" class="btn btn-primary">Download App</a>
               <a href="#partners" class="btn btn-secondary">Partner with Us</a>
+              <button class="btn btn-secondary" style="gap:8px" onclick="alert('AR View launching soon!')">
+                <span>🧊</span> View in AR
+              </button>
             </div>
 
             <div class="hero-features">
-              <div class="feature-badge">
+              <div class="feature-badge glass-premium">
                 <span class="icon">⚡</span>
                 <span>Instant NFC Boarding</span>
               </div>
-              <div class="feature-badge">
+              <div class="feature-badge glass-premium">
                 <span class="icon">📱</span>
                 <span>Live GPS Fare</span>
               </div>
-              <div class="feature-badge">
+              <div class="feature-badge glass-premium">
                 <span class="icon">🔒</span>
                 <span>Offline-First</span>
               </div>
-              <div class="feature-badge">
+              <div class="feature-badge glass-premium">
                 <span class="icon">🤖</span>
                 <span>AI-Powered</span>
               </div>
             </div>
           </div>
 
-          <!-- 3D Canvas: Three.js scene -->
-          <!-- Hero Image -->
-          <div class="hero-image-container">
-            <div class="hero-glow-effect"></div>
-            <img src="hardware-device-hand.jpg" alt="TapToTravel NFC Experience" class="hero-main-img"
-              id="hero-img-animate">
+          <!-- 3D Canvas: Global background handles this now -->
+          <div class="hero-image-container" style="height: 500px; width: 100%; pointer-events: none;">
+            <!-- Spacer for layout -->
           </div>
         </div>
       </div>
@@ -151,7 +145,8 @@
         </p>
 
         <div class="steps-container">
-          <div class="step-card glass-card">
+          <div class="step-card glass-premium">
+            <div class="ambient-glow" style="top: -50px; left: -50px; opacity: 0.6;"></div>
             <div class="step-number">01</div>
             <div class="step-icon">📱</div>
             <h3>Tap to Board</h3>
@@ -160,7 +155,7 @@
 
           <div class="step-arrow">→</div>
 
-          <div class="step-card glass-card">
+          <div class="step-card glass-premium">
             <div class="step-number">02</div>
             <div class="step-icon">📍</div>
             <h3>Driver GPS Tracks</h3>
@@ -169,7 +164,10 @@
 
           <div class="step-arrow">→</div>
 
-          <div class="step-card glass-card">
+          <div class="step-card glass-premium">
+            <div class="ambient-glow"
+              style="bottom: -50px; right: -50px; opacity: 0.5; background: radial-gradient(circle, rgba(94, 92, 230, 0.15) 0%, transparent 70%);">
+            </div>
             <div class="step-number">03</div>
             <div class="step-icon">💰</div>
             <h3>Dynamic Fare Meter</h3>
@@ -178,7 +176,7 @@
 
           <div class="step-arrow">→</div>
 
-          <div class="step-card glass-card">
+          <div class="step-card glass-premium">
             <div class="step-number">04</div>
             <div class="step-icon">🚪</div>
             <h3>Tap to Exit</h3>
@@ -187,7 +185,7 @@
 
           <div class="step-arrow">→</div>
 
-          <div class="step-card glass-card">
+          <div class="step-card glass-premium">
             <div class="step-number">05</div>
             <div class="step-icon">💳</div>
             <h3>Auto Payment</h3>
@@ -205,37 +203,37 @@
         </h2>
 
         <div class="features-grid">
-          <div class="feature-card glass-card">
+          <div class="feature-card glass-premium">
             <div class="feature-icon">📊</div>
             <h3>Live Fare Display</h3>
             <p>See real-time fare calculation as you ride. No surprises, complete transparency.</p>
           </div>
 
-          <div class="feature-card glass-card">
+          <div class="feature-card glass-premium">
             <div class="feature-icon">👤</div>
             <h3>Driver Identity</h3>
             <p>Verified driver profiles with ratings, photo, and vehicle details for your safety.</p>
           </div>
 
-          <div class="feature-card glass-card">
+          <div class="feature-card glass-premium">
             <div class="feature-icon">🛡️</div>
             <h3>Safety Features</h3>
             <p>SOS button, real-time tracking, route deviation alerts, and emergency contacts.</p>
           </div>
 
-          <div class="feature-card glass-card">
+          <div class="feature-card glass-premium">
             <div class="feature-icon">🌐</div>
             <h3>Multi-language UI</h3>
             <p>Support for Hindi, English, and regional languages. Accessible to everyone.</p>
           </div>
 
-          <div class="feature-card glass-card">
+          <div class="feature-card glass-premium">
             <div class="feature-icon">🧾</div>
             <h3>Digital Receipts</h3>
             <p>Instant receipts and complete ride history. Track all your trips in one place.</p>
           </div>
 
-          <div class="feature-card glass-card">
+          <div class="feature-card glass-premium">
             <div class="feature-icon">🤖</div>
             <h3>Vira AI Assistant</h3>
             <p>Voice-enabled AI assistant for fare queries, route info, and ride assistance.</p>
@@ -767,7 +765,10 @@
   </div>
 
   <!-- Main Scripts -->
+  <script type="module" src="background-3d.js"></script>
+  <script src="tilt.js"></script>
   <script src="script.js"></script>
+
 </body>
 
 </html>
