@@ -21,6 +21,7 @@
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="styles.css?v=2">
   <link rel="stylesheet" href="cursor.css">
+  <link rel="stylesheet" href="performance-fix.css">
 
   <!-- Critical inline styles -->
   <style>
@@ -238,11 +239,12 @@
         </h2>
 
         <div class="features-grid">
-          <div class="feature-card glass-premium">
+          <a href="features/live-fare.html" class="feature-card glass-premium"
+            style="text-decoration: none; color: inherit;">
             <div class="feature-icon">📊</div>
             <h3>Live Fare Display</h3>
             <p>See real-time fare calculation as you ride. No surprises, complete transparency.</p>
-          </div>
+          </a>
 
           <div class="feature-card glass-premium">
             <div class="feature-icon">👤</div>
@@ -250,17 +252,20 @@
             <p>Verified driver profiles with ratings, photo, and vehicle details for your safety.</p>
           </div>
 
-          <div class="feature-card glass-premium">
+          <a href="features/safety.html" class="feature-card glass-premium"
+            style="text-decoration: none; color: inherit;">
             <div class="feature-icon">🛡️</div>
             <h3>Safety Features</h3>
             <p>SOS button, real-time tracking, route deviation alerts, and emergency contacts.</p>
-          </div>
+          </a>
 
-          <div class="feature-card glass-premium">
+          <a href="features/languages.html" class="feature-card glass-premium"
+            style="text-decoration: none; color: inherit;">
             <div class="feature-icon">🌐</div>
-            <h3>Multi-language UI</h3>
-            <p>Support for Hindi, English, and regional languages. Accessible to everyone.</p>
-          </div>
+            <h3>12+ Languages</h3>
+            <p>Support for Hindi, English, Arabic, Gujarati, Kannada, Malayalam, Tamil, Telugu, Bengali, Urdu, and more.
+              Truly accessible to everyone.</p>
+          </a>
 
           <div class="feature-card glass-premium">
             <div class="feature-icon">🧾</div>
@@ -268,11 +273,281 @@
             <p>Instant receipts and complete ride history. Track all your trips in one place.</p>
           </div>
 
-          <div class="feature-card glass-premium">
+          <a href="features/vira-ai.html" class="feature-card glass-premium"
+            style="text-decoration: none; color: inherit;">
             <div class="feature-icon">🤖</div>
-            <h3>Vira AI Assistant</h3>
-            <p>Voice-enabled AI assistant for fare queries, route info, and ride assistance.</p>
+            <h3>VIRA AI Assistant</h3>
+            <p>Advanced voice-enabled AI with emotional intelligence, personality modes, and "Hey Vira" wake-word. Works
+              offline too.</p>
+          </a>
+
+          <a href="features/nfc-boarding.html" class="feature-card glass-premium"
+            style="text-decoration: none; color: inherit;">
+            <div class="feature-icon">📱</div>
+            <h3>NFC Tap-to-Board</h3>
+            <p>Instant boarding with NFC/RFID tap. No OTP, no waiting, no bargaining. Just tap your phone and go.</p>
+          </a>
+
+          <a href="features/wallet.html" class="feature-card glass-premium"
+            style="text-decoration: none; color: inherit;">
+            <div class="feature-icon">💳</div>
+            <h3>Digital Wallet & QR</h3>
+            <p>Built-in wallet with Razorpay integration, QR codes for quick payments, and complete transaction history.
+            </p>
+          </a>
+
+          <a href="features/saved-places.html" class="feature-card glass-premium"
+            style="text-decoration: none; color: inherit;">
+            <div class="feature-icon">📍</div>
+            <h3>Saved Places</h3>
+            <p>Save your favorite locations like home, work, and frequent destinations for one-tap booking.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIRA AI Section -->
+    <section class="vira-ai-section" aria-labelledby="vira-heading">
+      <div class="container">
+        <h2 id="vira-heading" class="section-title">
+          Meet <span class="gradient-text">VIRA AI</span>
+        </h2>
+        <p class="section-subtitle">
+          Your intelligent travel companion with emotional intelligence and personality
+        </p>
+
+        <div class="vira-showcase">
+          <div class="vira-features">
+            <div class="vira-feature-item">
+              <div class="vira-icon">🎤</div>
+              <div>
+                <h3>Wake-Word Activation</h3>
+                <p>Just say "Hey Vira" to activate your AI assistant. Hands-free, instant response.</p>
+              </div>
+            </div>
+
+            <div class="vira-feature-item">
+              <div class="vira-icon">😊</div>
+              <div>
+                <h3>Emotional Intelligence</h3>
+                <p>VIRA adapts to your mood with personality modes: Friendly, Professional, Enthusiastic, and
+                  Empathetic.</p>
+              </div>
+            </div>
+
+            <div class="vira-feature-item">
+              <div class="vira-icon">🌐</div>
+              <div>
+                <h3>Multi-Modal Input</h3>
+                <p>Interact via text, voice, images, or location. VIRA understands context from multiple sources.</p>
+              </div>
+            </div>
+
+            <div class="vira-feature-item">
+              <div class="vira-icon">📴</div>
+              <div>
+                <h3>Offline-Tolerant</h3>
+                <p>Works even with limited connectivity. Cached responses and graceful fallback ensure continuity.</p>
+              </div>
+            </div>
+
+            <div class="vira-feature-item">
+              <div class="vira-icon">🔮</div>
+              <div>
+                <h3>Proactive Assistance</h3>
+                <p>VIRA provides time-based cues, weather updates, traffic alerts, and smart suggestions.</p>
+              </div>
+            </div>
+
+            <div class="vira-feature-item">
+              <div class="vira-icon">🎯</div>
+              <div>
+                <h3>Intent Detection</h3>
+                <p>Understands your needs: fare estimates, bookings, wallet queries, profile updates, and more.</p>
+              </div>
+            </div>
           </div>
+
+          <div class="vira-tech">
+            <h3>Powered by Advanced AI</h3>
+            <div class="tech-badges">
+              <span class="tech-badge">Gemini 1.5</span>
+              <span class="tech-badge">Porcupine Wake-Word</span>
+              <span class="tech-badge">Custom Intent Detection</span>
+              <span class="tech-badge">12+ Languages</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- For Everyone Section - Accessibility -->
+    <section class="for-everyone-section" aria-labelledby="everyone-heading"
+      style="padding: 120px 0; background: var(--surface-color);">
+      <div class="container">
+        <h2 id="everyone-heading" class="section-title">
+          TapToTravel is for <span class="gradient-text">Everyone</span>
+        </h2>
+        <p class="section-subtitle">
+          Designed to be accessible and easy to use for all age groups and abilities
+        </p>
+
+        <div class="features-grid">
+          <!-- Students & Youth -->
+          <div class="feature-card glass-premium">
+            <div class="feature-icon">🎓</div>
+            <h3>Students & Youth (Under 18)</h3>
+            <p>Students can use TapToTravel as passengers for safe, tracked commutes to school, college, or tuition.
+              Parents can monitor trips in real-time for peace of mind.</p>
+          </div>
+
+          <!-- Adults -->
+          <div class="feature-card glass-premium">
+            <div class="feature-icon">👨‍💼</div>
+            <h3>Adults (18+ Years)</h3>
+            <p>Full access as both passenger and driver. Book rides, earn money as a driver, or manage your fleet with
+              complete control and flexibility.</p>
+          </div>
+
+          <!-- Elderly People -->
+          <div class="feature-card glass-premium">
+            <div class="feature-icon">👴</div>
+            <h3>Elderly Citizens</h3>
+            <p>Large fonts, simple interface, and voice commands in native language make it perfect for senior citizens.
+              No English or tech knowledge required.</p>
+          </div>
+
+          <!-- Visually Impaired -->
+          <div class="feature-card glass-premium">
+            <div class="feature-icon">👁️</div>
+            <h3>Visually Impaired Users</h3>
+            <p>VIRA AI with advanced voice commands enables blind users to book rides, check fares, and navigate
+              completely hands-free. Full screen reader support.</p>
+          </div>
+
+          <!-- Differently-Abled -->
+          <div class="feature-card glass-premium">
+            <div class="feature-icon">♿</div>
+            <h3>Differently-Abled Persons</h3>
+            <p>Voice-first interface, accessibility features, and special assistance options make TapToTravel inclusive
+              for all physical abilities.</p>
+          </div>
+
+          <!-- Non-English Speakers -->
+          <div class="feature-card glass-premium">
+            <div class="feature-icon">🗣️</div>
+            <h3>Regional Language Users</h3>
+            <p>Complete app in 12+ Indian languages including Hindi, Tamil, Bengali, Gujarati, and more. Use VIRA AI in
+              your mother tongue.</p>
+          </div>
+        </div>
+
+        <!-- Accessibility Features Highlight -->
+        <div style="margin-top: 80px;">
+          <h3 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--text-primary);">
+            Accessibility <span class="gradient-text">Features</span>
+          </h3>
+
+          <div class="driver-features"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+            <div class="driver-feature-item">
+              <div class="driver-icon">🎤</div>
+              <div>
+                <h3>Voice-First Design</h3>
+                <p>Complete app control via voice commands. "Hey Vira, book an auto to home" - that's all it takes.
+                  Perfect for visually impaired and elderly users.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item">
+              <div class="driver-icon">🔊</div>
+              <div>
+                <h3>Audio Announcements</h3>
+                <p>Trip updates, fare information, and navigation announced in your language. Clear audio feedback for
+                  every action.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item">
+              <div class="driver-icon">📱</div>
+              <div>
+                <h3>Simple Interface</h3>
+                <p>Large buttons, clear text, and intuitive design. No complicated menus or hidden features. Everything
+                  is just one tap away.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item">
+              <div class="driver-icon">🌐</div>
+              <div>
+                <h3>Native Language Support</h3>
+                <p>Every feature, every button, every message in your language. VIRA AI understands and speaks 12+
+                  Indian languages fluently.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item">
+              <div class="driver-icon">👨‍👩‍👧‍👦</div>
+              <div>
+                <h3>Family Sharing</h3>
+                <p>Parents can monitor children's trips, add emergency contacts, and set travel restrictions for safety.
+                </p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item">
+              <div class="driver-icon">🆘</div>
+              <div>
+                <h3>Emergency SOS</h3>
+                <p>One-tap SOS button accessible to everyone. Instant alerts to emergency contacts with live location
+                  sharing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Age-Based Features -->
+        <div
+          style="margin-top: 80px; padding: 60px; background: var(--glass-bg); border-radius: 32px; border: 1px solid var(--glass-border); backdrop-filter: blur(15px);">
+          <h3 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--text-primary);">
+            Age-Based <span class="gradient-text">Access</span>
+          </h3>
+
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; text-align: center;">
+            <div>
+              <div style="font-size: 3rem; margin-bottom: 16px;">👶</div>
+              <h4 style="color: var(--text-primary); margin-bottom: 12px; font-size: 1.3rem;">Under 18</h4>
+              <p style="color: var(--text-secondary); margin: 0;">✅ Passenger Mode<br>❌ Driver Mode<br>✅ Parent
+                Monitoring</p>
+            </div>
+
+            <div>
+              <div style="font-size: 3rem; margin-bottom: 16px;">👨</div>
+              <h4 style="color: var(--text-primary); margin-bottom: 12px; font-size: 1.3rem;">18+ Years</h4>
+              <p style="color: var(--text-secondary); margin: 0;">✅ Passenger Mode<br>✅ Driver Mode<br>✅ Full Access</p>
+            </div>
+
+            <div>
+              <div style="font-size: 3rem; margin-bottom: 16px;">👴</div>
+              <h4 style="color: var(--text-primary); margin-bottom: 12px; font-size: 1.3rem;">Senior Citizens</h4>
+              <p style="color: var(--text-secondary); margin: 0;">✅ Voice Commands<br>✅ Large Fonts<br>✅ Native Language
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="text-align: center; margin-top: 60px;">
+          <p style="font-size: 1.3rem; color: var(--text-primary); margin-bottom: 16px; font-weight: 600;">
+            Transportation for Everyone, Accessible to All
+          </p>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 32px;">
+            No matter your age, ability, or language - TapToTravel is designed for you
+          </p>
+          <a href="#contact" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 40px;">
+            Download TapToTravel Now
+          </a>
         </div>
       </div>
     </section>
@@ -347,7 +622,7 @@
           TapToTravel <span class="gradient-text">Hardware</span>
         </h2>
         <p class="section-subtitle">
-          Patent-pending edge computing device for smart mobility
+          Patent-pending edge computing device revolutionizing smart mobility with cutting-edge technology
         </p>
 
         <div class="hardware-showcase">
@@ -358,36 +633,166 @@
           </div>
         </div>
 
-        <div class="hardware-specs">
-          <div class="spec-card">
-            <h3>ESP32 MCU</h3>
-            <p>Powerful microcontroller for edge computing and offline processing</p>
-          </div>
+        <!-- Key Features -->
+        <div style="margin: 60px 0;">
+          <h3 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--text-primary);">
+            Key <span class="gradient-text">Capabilities</span>
+          </h3>
+          <div class="hardware-specs">
+            <div class="spec-card">
+              <h3>🔒 Smart Edge Computing</h3>
+              <p>Advanced microcontroller technology for real-time processing and offline capabilities</p>
+            </div>
 
-          <div class="spec-card">
-            <h3>PN532 NFC Module</h3>
-            <p>Fast and reliable NFC reading for instant tap-in/tap-out</p>
-          </div>
+            <div class="spec-card">
+              <h3>📡 Contactless Technology</h3>
+              <p>Instant tap-to-board with industry-standard contactless communication</p>
+            </div>
 
-          <div class="spec-card">
-            <h3>GPS Module (NEO-6M)</h3>
-            <p>High-precision GPS tracking with 1-2 second update rate</p>
-          </div>
+            <div class="spec-card">
+              <h3>📍 Precision Tracking</h3>
+              <p>High-accuracy location tracking for transparent fare calculation</p>
+            </div>
 
-          <div class="spec-card">
-            <h3>I2C OLED Display</h3>
-            <p>Clear fare display and status information</p>
-          </div>
+            <div class="spec-card">
+              <h3>📊 Real-Time Display</h3>
+              <p>Clear visual feedback for fare and trip information</p>
+            </div>
 
-          <div class="spec-card">
-            <h3>Offline Event Queue</h3>
-            <p>Local storage (SPIFFS) for offline event queuing and sync</p>
-          </div>
+            <div class="spec-card">
+              <h3>🔄 Offline-First Design</h3>
+              <p>Local data storage and automatic sync when connectivity is restored</p>
+            </div>
 
-          <div class="spec-card">
-            <h3>Edge Logic</h3>
-            <p>Patent-pending anti-tamper GPS validation and fare calculation</p>
+            <div class="spec-card">
+              <h3>🛡️ Patent-Pending Technology</h3>
+              <p>Proprietary anti-tamper validation and secure fare calculation system</p>
+            </div>
           </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div style="margin: 80px 0;">
+          <h3 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--text-primary);">
+            Why Our <span class="gradient-text">Hardware</span> Stands Out
+          </h3>
+          <div class="features-grid">
+            <div class="feature-card glass-premium">
+              <div class="feature-icon">⚡</div>
+              <h3>Lightning Fast</h3>
+              <p>Sub-second response time for tap-in and tap-out. Instant boarding without any delays or waiting.</p>
+            </div>
+
+            <div class="feature-card glass-premium">
+              <div class="feature-icon">🌐</div>
+              <h3>Works Anywhere</h3>
+              <p>Functions perfectly in areas with poor or no internet connectivity. True offline-first architecture.
+              </p>
+            </div>
+
+            <div class="feature-card glass-premium">
+              <div class="feature-icon">🔋</div>
+              <h3>Long Battery Life</h3>
+              <p>Optimized power consumption ensures the device runs for extended periods on a single charge.</p>
+            </div>
+
+            <div class="feature-card glass-premium">
+              <div class="feature-icon">🌡️</div>
+              <h3>Weather Resistant</h3>
+              <p>Designed to withstand harsh Indian weather conditions - heat, dust, rain, and humidity.</p>
+            </div>
+
+            <div class="feature-card glass-premium">
+              <div class="feature-icon">🔐</div>
+              <h3>Tamper-Proof</h3>
+              <p>Advanced security measures prevent GPS spoofing, fare manipulation, and unauthorized access.</p>
+            </div>
+
+            <div class="feature-card glass-premium">
+              <div class="feature-icon">💰</div>
+              <h3>Cost-Effective</h3>
+              <p>Affordable hardware solution designed for mass deployment across auto-rickshaws and taxis.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Use Cases -->
+        <div style="margin: 80px 0;">
+          <h3 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--text-primary);">
+            Perfect For <span class="gradient-text">All Vehicles</span>
+          </h3>
+          <div class="driver-features"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+            <div class="driver-feature-item"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(15px);">
+              <div class="driver-icon" style="font-size: 3rem; margin-bottom: 16px;">🛺</div>
+              <div>
+                <h3 style="color: var(--text-primary); margin-bottom: 12px;">Auto-Rickshaws</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Compact design fits perfectly in auto-rickshaws.
+                  Easy installation and minimal maintenance required.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(15px);">
+              <div class="driver-icon" style="font-size: 3rem; margin-bottom: 16px;">🚕</div>
+              <div>
+                <h3 style="color: var(--text-primary); margin-bottom: 12px;">Taxis & Cabs</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Professional-grade hardware suitable for premium
+                  taxi services with advanced features.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(15px);">
+              <div class="driver-icon" style="font-size: 3rem; margin-bottom: 16px;">🚐</div>
+              <div>
+                <h3 style="color: var(--text-primary); margin-bottom: 12px;">E-Rickshaws</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Low power consumption perfect for electric vehicles.
+                  Integrates seamlessly with existing systems.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(15px);">
+              <div class="driver-icon" style="font-size: 3rem; margin-bottom: 16px;">🚗</div>
+              <div>
+                <h3 style="color: var(--text-primary); margin-bottom: 12px;">Private Cars</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Premium solution for private car owners offering
+                  rides. Sleek design with dashboard mounting options.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(15px);">
+              <div class="driver-icon" style="font-size: 3rem; margin-bottom: 16px;">🏍️</div>
+              <div>
+                <h3 style="color: var(--text-primary); margin-bottom: 12px;">Bikes & Scooters</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Compact, weatherproof device for two-wheeler rides.
+                  Perfect for quick city commutes and deliveries.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(15px);">
+              <div class="driver-icon" style="font-size: 3rem; margin-bottom: 16px;">🚌</div>
+              <div>
+                <h3 style="color: var(--text-primary); margin-bottom: 12px;">Buses (Coming Soon)</h3>
+                <p style="color: var(--text-secondary); margin: 0;">Scalable solution for public buses with
+                  multi-passenger support and route management.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="text-align: center; margin-top: 60px;">
+          <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 24px;">
+            Interested in deploying our hardware in your fleet?
+          </p>
+          <a href="#contact" class="btn btn-primary" style="font-size: 1.1rem; padding: 16px 40px;">
+            Get Hardware Details
+          </a>
         </div>
       </div>
     </section>
@@ -398,141 +803,191 @@
         <h2 id="tech-heading" class="section-title">
           Technology <span class="gradient-text">Architecture</span>
         </h2>
+        <p class="section-subtitle">
+          Built with cutting-edge technology for reliability, scalability, and performance
+        </p>
 
-        <div class="architecture-diagram">
-          <div class="arch-flow">
-            <div class="arch-node">
-              <div class="node-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                </svg>
+        <!-- Architecture Flow Diagram -->
+        <div style="margin: 60px 0;">
+          <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 40px; color: var(--text-primary);">
+            System <span class="gradient-text">Flow</span>
+          </h3>
+          <div class="architecture-diagram">
+            <div class="arch-flow"
+              style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 16px;">
+              <!-- Hardware Device -->
+              <div class="arch-node"
+                style="background: var(--glass-bg); padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px); text-align: center; min-width: 140px;">
+                <div class="node-icon" style="font-size: 2.5rem; margin-bottom: 12px;">📱</div>
+                <h4 style="color: var(--text-primary); margin-bottom: 8px; font-size: 1rem;">Hardware Device</h4>
+                <p style="color: var(--text-secondary); margin: 0; font-size: 0.85rem;">ESP32 + NFC + GPS</p>
               </div>
-              <h4>Hardware Device</h4>
-              <p>ESP32 + NFC + GPS</p>
-            </div>
 
-            <div class="arch-arrow">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
+              <div class="arch-arrow" style="color: var(--accent-primary); font-size: 1.5rem;">→</div>
 
-            <div class="arch-node">
-              <div class="node-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                  <polyline points="21 15 16 10 5 21"></polyline>
-                </svg>
+              <!-- Driver App -->
+              <div class="arch-node"
+                style="background: var(--glass-bg); padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px); text-align: center; min-width: 140px;">
+                <div class="node-icon" style="font-size: 2.5rem; margin-bottom: 12px;">🚗</div>
+                <h4 style="color: var(--text-primary); margin-bottom: 8px; font-size: 1rem;">Driver App</h4>
+                <p style="color: var(--text-secondary); margin: 0; font-size: 0.85rem;">Flutter Mobile</p>
               </div>
-              <h4>Driver App</h4>
-              <p>Flutter Mobile</p>
-            </div>
 
-            <div class="arch-arrow">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
+              <div class="arch-arrow" style="color: var(--accent-primary); font-size: 1.5rem;">→</div>
 
-            <div class="arch-node">
-              <div class="node-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                </svg>
+              <!-- Firestore -->
+              <div class="arch-node"
+                style="background: var(--glass-bg); padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px); text-align: center; min-width: 140px;">
+                <div class="node-icon" style="font-size: 2.5rem; margin-bottom: 12px;">🗄️</div>
+                <h4 style="color: var(--text-primary); margin-bottom: 8px; font-size: 1rem;">Firestore</h4>
+                <p style="color: var(--text-secondary); margin: 0; font-size: 0.85rem;">Real-time Database</p>
               </div>
-              <h4>Firestore</h4>
-              <p>Real-time Database</p>
-            </div>
 
-            <div class="arch-arrow">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
+              <div class="arch-arrow" style="color: var(--accent-primary); font-size: 1.5rem;">→</div>
 
-            <div class="arch-node">
-              <div class="node-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                </svg>
+              <!-- Cloud Functions -->
+              <div class="arch-node"
+                style="background: var(--glass-bg); padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px); text-align: center; min-width: 140px;">
+                <div class="node-icon" style="font-size: 2.5rem; margin-bottom: 12px;">⚡</div>
+                <h4 style="color: var(--text-primary); margin-bottom: 8px; font-size: 1rem;">Cloud Functions</h4>
+                <p style="color: var(--text-secondary); margin: 0; font-size: 0.85rem;">AI & Processing</p>
               </div>
-              <h4>Cloud Functions</h4>
-              <p>AI & Processing</p>
-            </div>
 
-            <div class="arch-arrow">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
+              <div class="arch-arrow" style="color: var(--accent-primary); font-size: 1.5rem;">→</div>
 
-            <div class="arch-node">
-              <div class="node-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
+              <!-- Passenger App -->
+              <div class="arch-node"
+                style="background: var(--glass-bg); padding: 24px; border-radius: 20px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px); text-align: center; min-width: 140px;">
+                <div class="node-icon" style="font-size: 2.5rem; margin-bottom: 12px;">👤</div>
+                <h4 style="color: var(--text-primary); margin-bottom: 8px; font-size: 1rem;">Passenger App</h4>
+                <p style="color: var(--text-secondary); margin: 0; font-size: 0.85rem;">Flutter Mobile</p>
               </div>
-              <h4>Passenger App</h4>
-              <p>Flutter Mobile</p>
             </div>
           </div>
         </div>
 
-        <div class="tech-stack">
-          <div class="tech-category">
-            <h3>Frontend</h3>
-            <div class="tech-tags">
-              <span class="tech-tag">Flutter</span>
-              <span class="tech-tag">Dart</span>
-              <span class="tech-tag">Material Design</span>
-            </div>
-          </div>
+        <!-- Tech Stack Cards -->
+        <div style="margin: 80px 0;">
+          <h3 style="text-align: center; font-size: 1.8rem; margin-bottom: 40px; color: var(--text-primary);">
+            Technology <span class="gradient-text">Stack</span>
+          </h3>
+          <div class="tech-stack"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
 
-          <div class="tech-category">
-            <h3>Backend</h3>
-            <div class="tech-tags">
-              <span class="tech-tag">Firebase</span>
-              <span class="tech-tag">Firestore</span>
-              <span class="tech-tag">Cloud Functions</span>
-              <span class="tech-tag">Firebase Auth</span>
+            <!-- Frontend -->
+            <div class="tech-category"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px);">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <div style="font-size: 2rem;">📱</div>
+                <h3 style="color: var(--text-primary); margin: 0; font-size: 1.3rem;">Frontend</h3>
+              </div>
+              <div class="tech-tags" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">Flutter
+                  3.32+</span>
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">Dart</span>
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">Material
+                  Design</span>
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">Google
+                  ML Kit</span>
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">Lottie
+                  Animations</span>
+              </div>
             </div>
-          </div>
 
-          <div class="tech-category">
-            <h3>AI & ML</h3>
-            <div class="tech-tags">
-              <span class="tech-tag">Genkit</span>
-              <span class="tech-tag">OpenAI</span>
-              <span class="tech-tag">Custom ML Models</span>
-              <span class="tech-tag">Vira AI</span>
+            <!-- Backend -->
+            <div class="tech-category"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px);">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <div style="font-size: 2rem;">⚙️</div>
+                <h3 style="color: var(--text-primary); margin: 0; font-size: 1.3rem;">Backend</h3>
+              </div>
+              <div class="tech-tags" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="tech-tag"
+                  style="background: rgba(240, 147, 251, 0.1); color: #f093fb; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(240, 147, 251, 0.2);">Firebase
+                  Auth</span>
+                <span class="tech-tag"
+                  style="background: rgba(240, 147, 251, 0.1); color: #f093fb; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(240, 147, 251, 0.2);">Firestore</span>
+                <span class="tech-tag"
+                  style="background: rgba(240, 147, 251, 0.1); color: #f093fb; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(240, 147, 251, 0.2);">Realtime
+                  Database</span>
+                <span class="tech-tag"
+                  style="background: rgba(240, 147, 251, 0.1); color: #f093fb; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(240, 147, 251, 0.2);">Cloud
+                  Functions</span>
+                <span class="tech-tag"
+                  style="background: rgba(240, 147, 251, 0.1); color: #f093fb; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(240, 147, 251, 0.2);">Firebase
+                  Storage</span>
+              </div>
             </div>
-          </div>
 
-          <div class="tech-category">
-            <h3>Hardware</h3>
-            <div class="tech-tags">
-              <span class="tech-tag">ESP32</span>
-              <span class="tech-tag">PN532 NFC</span>
-              <span class="tech-tag">NEO-6M GPS</span>
-              <span class="tech-tag">OLED Display</span>
+            <!-- AI & ML -->
+            <div class="tech-category"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px);">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <div style="font-size: 2rem;">🤖</div>
+                <h3 style="color: var(--text-primary); margin: 0; font-size: 1.3rem;">AI & ML</h3>
+              </div>
+              <div class="tech-tags" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">Gemini
+                  1.5</span>
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">Porcupine
+                  Wake-Word</span>
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">Custom
+                  Intent Detection</span>
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">VIRA
+                  AI</span>
+              </div>
+            </div>
+
+            <!-- IoT & Edge Computing -->
+            <div class="tech-category"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px);">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <div style="font-size: 2rem;">🔧</div>
+                <h3 style="color: var(--text-primary); margin: 0; font-size: 1.3rem;">IoT & Edge Computing</h3>
+              </div>
+              <div class="tech-tags" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="tech-tag"
+                  style="background: rgba(240, 147, 251, 0.1); color: #f093fb; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(240, 147, 251, 0.2);">Edge
+                  Computing</span>
+                <span class="tech-tag"
+                  style="background: rgba(240, 147, 251, 0.1); color: #f093fb; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(240, 147, 251, 0.2);">NFC
+                  Technology</span>
+                <span class="tech-tag"
+                  style="background: rgba(240, 147, 251, 0.1); color: #f093fb; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(240, 147, 251, 0.2);">GPS
+                  Tracking</span>
+                <span class="tech-tag"
+                  style="background: rgba(240, 147, 251, 0.1); color: #f093fb; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(240, 147, 251, 0.2);">Real-time
+                  Display</span>
+                <span class="tech-tag"
+                  style="background: rgba(240, 147, 251, 0.1); color: #f093fb; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(240, 147, 251, 0.2);">Offline-First</span>
+              </div>
+            </div>
+
+            <!-- Payments -->
+            <div class="tech-category"
+              style="background: var(--glass-bg); padding: 32px; border-radius: 24px; border: 1px solid var(--glass-border); backdrop-filter: blur(20px);">
+              <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                <div style="font-size: 2rem;">💳</div>
+                <h3 style="color: var(--text-primary); margin: 0; font-size: 1.3rem;">Payments</h3>
+              </div>
+              <div class="tech-tags" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">Razorpay</span>
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">UPI</span>
+                <span class="tech-tag"
+                  style="background: rgba(79, 172, 254, 0.1); color: #4facfe; padding: 8px 16px; border-radius: 12px; font-size: 0.9rem; border: 1px solid rgba(79, 172, 254, 0.2);">Digital
+                  Wallet</span>
+              </div>
             </div>
           </div>
         </div>
@@ -584,6 +1039,360 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Carbon Footprint Section -->
+    <section class="carbon-section" aria-labelledby="carbon-heading"
+      style="padding: 120px 0; background: linear-gradient(180deg, #000000 0%, #0a1f0a 50%, #000000 100%); position: relative; overflow: hidden;">
+      <!-- Animated Background -->
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; pointer-events: none;">
+        <div
+          style="position: absolute; top: 20%; left: 10%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, transparent 70%); border-radius: 50%; filter: blur(60px); animation: float 8s ease-in-out infinite;">
+        </div>
+        <div
+          style="position: absolute; top: 60%; right: 10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%); border-radius: 50%; filter: blur(80px); animation: float 10s ease-in-out infinite reverse;">
+        </div>
+      </div>
+
+      <div class="container" style="position: relative; z-index: 1;">
+        <!-- Title with Green Gradient -->
+        <h2 id="carbon-heading" class="section-title"
+          style="background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 40px rgba(16, 185, 129, 0.3);">
+          Carbon <span
+            style="background: linear-gradient(135deg, #22c55e 0%, #4ade80 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Footprint</span>
+          Tracking
+        </h2>
+        <p class="section-subtitle" style="color: #a7f3d0; font-size: 1.2rem;">
+          Track your environmental impact with every ride. Real CO₂ calculations, green rewards, and sustainability
+          insights.
+        </p>
+
+        <!-- Hero Stats with Glow -->
+        <div style="margin: 60px 0; text-align: center;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">
+            <!-- Stat 1 -->
+            <div
+              style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.1) 100%); padding: 40px 32px; border-radius: 24px; border: 2px solid rgba(16, 185, 129, 0.3); backdrop-filter: blur(20px); box-shadow: 0 0 40px rgba(16, 185, 129, 0.2), inset 0 0 20px rgba(16, 185, 129, 0.1); transition: all 0.5s ease; position: relative; overflow: hidden;">
+              <div
+                style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%); animation: pulse 3s ease-in-out infinite;">
+              </div>
+              <div style="font-size: 3.5rem; margin-bottom: 16px; position: relative; z-index: 1;">🌍</div>
+              <h3
+                style="color: #10b981; font-size: 3rem; margin-bottom: 12px; font-weight: 700; text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); position: relative; z-index: 1;">
+                18+ Tons</h3>
+              <p style="color: #6ee7b7; margin: 0; font-size: 1.1rem; position: relative; z-index: 1;">CO₂ Saved
+                Collectively</p>
+            </div>
+
+            <!-- Stat 2 -->
+            <div
+              style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(22, 163, 74, 0.1) 100%); padding: 40px 32px; border-radius: 24px; border: 2px solid rgba(34, 197, 94, 0.3); backdrop-filter: blur(20px); box-shadow: 0 0 40px rgba(34, 197, 94, 0.2), inset 0 0 20px rgba(34, 197, 94, 0.1); transition: all 0.5s ease; position: relative; overflow: hidden;">
+              <div
+                style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%); animation: pulse 3s ease-in-out infinite 1s;">
+              </div>
+              <div style="font-size: 3.5rem; margin-bottom: 16px; position: relative; z-index: 1;">🌱</div>
+              <h3
+                style="color: #22c55e; font-size: 3rem; margin-bottom: 12px; font-weight: 700; text-shadow: 0 0 20px rgba(34, 197, 94, 0.5); position: relative; z-index: 1;">
+                1L+ km</h3>
+              <p style="color: #86efac; margin: 0; font-size: 1.1rem; position: relative; z-index: 1;">Green Miles
+                Traveled</p>
+            </div>
+
+            <!-- Stat 3 -->
+            <div
+              style="background: linear-gradient(135deg, rgba(52, 211, 153, 0.15) 0%, rgba(16, 185, 129, 0.1) 100%); padding: 40px 32px; border-radius: 24px; border: 2px solid rgba(52, 211, 153, 0.3); backdrop-filter: blur(20px); box-shadow: 0 0 40px rgba(52, 211, 153, 0.2), inset 0 0 20px rgba(52, 211, 153, 0.1); transition: all 0.5s ease; position: relative; overflow: hidden;">
+              <div
+                style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(52, 211, 153, 0.1) 0%, transparent 70%); animation: pulse 3s ease-in-out infinite 2s;">
+              </div>
+              <div style="font-size: 3.5rem; margin-bottom: 16px; position: relative; z-index: 1;">⚡</div>
+              <h3
+                style="color: #34d399; font-size: 3rem; margin-bottom: 12px; font-weight: 700; text-shadow: 0 0 20px rgba(52, 211, 153, 0.5); position: relative; z-index: 1;">
+                0.01 kg</h3>
+              <p style="color: #a7f3d0; margin: 0; font-size: 1.1rem; position: relative; z-index: 1;">CO₂ per km (EV)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- How It Works -->
+        <div style="margin: 100px 0;">
+          <h3
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 50px; background: linear-gradient(135deg, #10b981 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700;">
+            How <span
+              style="background: linear-gradient(135deg, #22c55e 0%, #6ee7b7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">It
+              Works</span>
+          </h3>
+          <div class="features-grid">
+            <div class="feature-card"
+              style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%); border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15); transition: all 0.5s ease;">
+              <div class="feature-icon" style="font-size: 3rem; filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));">
+                📍</div>
+              <h3 style="color: #10b981;">GPS Distance Tracking</h3>
+              <p style="color: #a7f3d0;">Accurate distance calculation from driver's GPS for every ride. Real-time
+                monitoring ensures precision.</p>
+            </div>
+
+            <div class="feature-card"
+              style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.05) 100%); border: 1px solid rgba(34, 197, 94, 0.3); box-shadow: 0 8px 32px rgba(34, 197, 94, 0.15); transition: all 0.5s ease;">
+              <div class="feature-icon" style="font-size: 3rem; filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.5));">
+                🚗</div>
+              <h3 style="color: #22c55e;">Vehicle Type Detection</h3>
+              <p style="color: #86efac;">Automatic identification of vehicle type (EV, Petrol, Diesel) with
+                corresponding CO₂ emission factors.</p>
+            </div>
+
+            <div class="feature-card"
+              style="background: linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%); border: 1px solid rgba(52, 211, 153, 0.3); box-shadow: 0 8px 32px rgba(52, 211, 153, 0.15); transition: all 0.5s ease;">
+              <div class="feature-icon" style="font-size: 3rem; filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.5));">
+                🧮</div>
+              <h3 style="color: #34d399;">Scientific Calculation</h3>
+              <p style="color: #a7f3d0;">Formula: CO₂ = Distance × Vehicle_Factor. Petrol: 0.11 kg/km, Diesel: 0.12
+                kg/km, EV: 0.01 kg/km.</p>
+            </div>
+
+            <div class="feature-card"
+              style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%); border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15); transition: all 0.5s ease;">
+              <div class="feature-icon" style="font-size: 3rem; filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));">
+                💚</div>
+              <h3 style="color: #10b981;">Savings Comparison</h3>
+              <p style="color: #6ee7b7;">Compare EV rides with petrol/diesel equivalents. See exactly how much CO₂ you
+                saved per trip.</p>
+            </div>
+
+            <div class="feature-card"
+              style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.05) 100%); border: 1px solid rgba(34, 197, 94, 0.3); box-shadow: 0 8px 32px rgba(34, 197, 94, 0.15); transition: all 0.5s ease;">
+              <div class="feature-icon" style="font-size: 3rem; filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.5));">
+                📊</div>
+              <h3 style="color: #22c55e;">Lifetime Analytics</h3>
+              <p style="color: #86efac;">Track your total environmental impact over time. Monthly graphs, yearly
+                summaries, and milestone badges.</p>
+            </div>
+
+            <div class="feature-card"
+              style="background: linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%); border: 1px solid rgba(52, 211, 153, 0.3); box-shadow: 0 8px 32px rgba(52, 211, 153, 0.15); transition: all 0.5s ease;">
+              <div class="feature-icon" style="font-size: 3rem; filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.5));">
+                🎁</div>
+              <h3 style="color: #34d399;">Green Rewards</h3>
+              <p style="color: #a7f3d0;">Earn points for eco-friendly rides. Unlock badges, discounts, and exclusive
+                green traveler benefits.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example Calculation with Premium Design -->
+        <div
+          style="margin: 100px 0; padding: 60px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.1) 100%); border-radius: 32px; border: 2px solid rgba(16, 185, 129, 0.3); backdrop-filter: blur(20px); box-shadow: 0 0 60px rgba(16, 185, 129, 0.3), inset 0 0 40px rgba(16, 185, 129, 0.1); position: relative; overflow: hidden;">
+          <div
+            style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%); border-radius: 50%; filter: blur(60px);">
+          </div>
+
+          <h3
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 50px; background: linear-gradient(135deg, #10b981 0%, #6ee7b7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; position: relative; z-index: 1;">
+            Real <span
+              style="background: linear-gradient(135deg, #22c55e 0%, #86efac 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Example</span>
+          </h3>
+          <div style="max-width: 600px; margin: 0 auto; position: relative; z-index: 1;">
+            <div
+              style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.1) 100%); padding: 32px; border-radius: 20px; margin-bottom: 24px; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);">
+              <h4 style="color: #10b981; margin-bottom: 20px; font-size: 1.5rem; font-weight: 600;">📍 Ride Details</h4>
+              <p style="color: #d1fae5; margin: 12px 0; font-size: 1.1rem;">Distance: <strong
+                  style="color: #10b981; font-size: 1.3rem;">4.2 km</strong></p>
+              <p style="color: #d1fae5; margin: 12px 0; font-size: 1.1rem;">Vehicle: <strong
+                  style="color: #22c55e; font-size: 1.3rem;">Electric Auto ⚡</strong></p>
+            </div>
+
+            <div
+              style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(22, 163, 74, 0.1) 100%); padding: 32px; border-radius: 20px; margin-bottom: 24px; border: 2px solid rgba(34, 197, 94, 0.4); box-shadow: 0 0 30px rgba(34, 197, 94, 0.2);">
+              <h4 style="color: #22c55e; margin-bottom: 20px; font-size: 1.5rem; font-weight: 600;">🧮 Calculation</h4>
+              <p style="color: #d1fae5; margin: 12px 0; font-size: 1.05rem;">EV Emission: 4.2 × 0.01 = <strong
+                  style="color: #22c55e;">0.042 kg CO₂</strong></p>
+              <p style="color: #d1fae5; margin: 12px 0; font-size: 1.05rem;">Petrol Alternative: 4.2 × 0.11 = <strong
+                  style="color: #f87171;">0.462 kg CO₂</strong></p>
+              <p style="color: #d1fae5; margin: 12px 0; font-size: 1.05rem;">CO₂ Saved: 0.462 - 0.042 = <strong
+                  style="color: #34d399; font-size: 1.2rem;">0.42 kg</strong></p>
+            </div>
+
+            <div
+              style="background: linear-gradient(135deg, rgba(52, 211, 153, 0.3) 0%, rgba(16, 185, 129, 0.2) 100%); padding: 40px; border-radius: 20px; border: 2px solid rgba(52, 211, 153, 0.5); box-shadow: 0 0 40px rgba(52, 211, 153, 0.4); text-align: center;">
+              <h4 style="color: #34d399; margin-bottom: 16px; font-size: 1.5rem; font-weight: 600;">🌿 Environmental
+                Impact</h4>
+              <p
+                style="color: #10b981; font-size: 2rem; font-weight: 700; margin: 16px 0; text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);">
+                You saved 0.42 kg CO₂!</p>
+              <p style="color: #a7f3d0; margin: 0; font-size: 1.1rem;">Equivalent to saving a 3-hour bulb energy ⚡</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div style="margin: 100px 0;">
+          <h3
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 50px; background: linear-gradient(135deg, #10b981 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700;">
+            Why <span
+              style="background: linear-gradient(135deg, #22c55e 0%, #6ee7b7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">It
+              Matters</span>
+          </h3>
+          <div class="driver-features"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+            <div class="driver-feature-item"
+              style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%); border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);">
+              <div class="driver-icon" style="filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));">🏛️</div>
+              <div>
+                <h3 style="color: #10b981;">Government Partnerships</h3>
+                <p style="color: #a7f3d0;">Smart City funding, Green Mobility initiatives, and CSR reports with real
+                  environmental impact data.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item"
+              style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.05) 100%); border: 1px solid rgba(34, 197, 94, 0.3); box-shadow: 0 8px 32px rgba(34, 197, 94, 0.15);">
+              <div class="driver-icon" style="filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.5));">💼</div>
+              <div>
+                <h3 style="color: #22c55e;">Investor Attraction</h3>
+                <p style="color: #86efac;">ESG funding, sustainability metrics, and higher startup valuation through
+                  measurable environmental impact.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item"
+              style="background: linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%); border: 1px solid rgba(52, 211, 153, 0.3); box-shadow: 0 8px 32px rgba(52, 211, 153, 0.15);">
+              <div class="driver-icon" style="filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.5));">🎯</div>
+              <div>
+                <h3 style="color: #34d399;">User Engagement</h3>
+                <p style="color: #a7f3d0;">Gamification with badges, monthly challenges, and rewards keeps users coming
+                  back. Retention ↑ 10x.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item"
+              style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%); border: 1px solid rgba(16, 185, 129, 0.3); box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15);">
+              <div class="driver-icon" style="filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));">🌟</div>
+              <div>
+                <h3 style="color: #10b981;">Brand Differentiation</h3>
+                <p style="color: #6ee7b7;">"Clean Ride, Smart Ride" - First-of-its-kind in India. Stand out from
+                  competition automatically.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item"
+              style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.05) 100%); border: 1px solid rgba(34, 197, 94, 0.3); box-shadow: 0 8px 32px rgba(34, 197, 94, 0.15);">
+              <div class="driver-icon" style="filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.5));">📈</div>
+              <div>
+                <h3 style="color: #22c55e;">Marketing Power</h3>
+                <p style="color: #86efac;">Real numbers: "TapToTravel saved 18 tons CO₂" creates powerful brand stories
+                  and media coverage.</p>
+              </div>
+            </div>
+
+            <div class="driver-feature-item"
+              style="background: linear-gradient(135deg, rgba(52, 211, 153, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%); border: 1px solid rgba(52, 211, 153, 0.3); box-shadow: 0 8px 32px rgba(52, 211, 153, 0.15);">
+              <div class="driver-icon" style="filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.5));">🏆</div>
+              <div>
+                <h3 style="color: #34d399;">User Pride</h3>
+                <p style="color: #a7f3d0;">Users feel good about their choices. "I'm making a difference" creates
+                  emotional brand attachment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gamification with Premium Design -->
+        <div class="gamification-container"
+          style="margin: 100px 0; padding: 70px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(52, 211, 153, 0.15) 50%, rgba(16, 185, 129, 0.2) 100%); border-radius: 32px; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 0 60px rgba(16, 185, 129, 0.3); position: relative; overflow: hidden;">
+
+          <h3
+            style="text-align: center; font-size: 2.5rem; margin-bottom: 50px; background: linear-gradient(135deg, #10b981 0%, #6ee7b7 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; position: relative; z-index: 1;">
+            Green <span
+              style="background: linear-gradient(135deg, #22c55e 0%, #86efac 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Rewards</span>
+            System
+          </h3>
+          <div
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; position: relative; z-index: 1;">
+            <div
+              style="text-align: center; padding: 32px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.1) 100%); border-radius: 20px; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 0 30px rgba(16, 185, 129, 0.2); transition: all 0.5s ease;">
+              <div style="font-size: 4rem; margin-bottom: 16px; filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.6));">
+                🌱</div>
+              <h4 style="color: #10b981; margin-bottom: 12px; font-size: 1.5rem; font-weight: 600;">Green Points</h4>
+              <p style="color: #a7f3d0; margin: 0; font-size: 1.1rem;">Earn 10 points per kg CO₂ saved</p>
+            </div>
+
+            <div
+              style="text-align: center; padding: 32px; background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(22, 163, 74, 0.1) 100%); border-radius: 20px; border: 2px solid rgba(34, 197, 94, 0.4); box-shadow: 0 0 30px rgba(34, 197, 94, 0.2); transition: all 0.5s ease;">
+              <div style="font-size: 4rem; margin-bottom: 16px; filter: drop-shadow(0 0 15px rgba(34, 197, 94, 0.6));">
+                🏅</div>
+              <h4 style="color: #22c55e; margin-bottom: 12px; font-size: 1.5rem; font-weight: 600;">Eco Badges</h4>
+              <p style="color: #86efac; margin: 0; font-size: 1.1rem;">Unlock achievements & milestones</p>
+            </div>
+
+            <div
+              style="text-align: center; padding: 32px; background: linear-gradient(135deg, rgba(52, 211, 153, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%); border-radius: 20px; border: 2px solid rgba(52, 211, 153, 0.4); box-shadow: 0 0 30px rgba(52, 211, 153, 0.2); transition: all 0.5s ease;">
+              <div style="font-size: 4rem; margin-bottom: 16px; filter: drop-shadow(0 0 15px rgba(52, 211, 153, 0.6));">
+                🎁</div>
+              <h4 style="color: #34d399; margin-bottom: 12px; font-size: 1.5rem; font-weight: 600;">Monthly Rewards</h4>
+              <p style="color: #a7f3d0; margin: 0; font-size: 1.1rem;">Save 3kg CO₂ → 20% travel credit</p>
+            </div>
+
+            <div
+              style="text-align: center; padding: 32px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.1) 100%); border-radius: 20px; border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 0 30px rgba(16, 185, 129, 0.2); transition: all 0.5s ease;">
+              <div style="font-size: 4rem; margin-bottom: 16px; filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.6));">
+                📊</div>
+              <h4 style="color: #10b981; margin-bottom: 12px; font-size: 1.5rem; font-weight: 600;">Leaderboards</h4>
+              <p style="color: #6ee7b7; margin: 0; font-size: 1.1rem;">Compete with eco-warriors</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA with Glow Effect -->
+        <div
+          style="text-align: center; margin-top: 80px; padding: 60px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.1) 100%); border-radius: 32px; border: 2px solid rgba(16, 185, 129, 0.3); box-shadow: 0 0 50px rgba(16, 185, 129, 0.3);">
+          <p
+            style="font-size: 2rem; background: linear-gradient(135deg, #10b981 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 20px; font-weight: 700;">
+            Join the Green Mobility Revolution
+          </p>
+          <p style="font-size: 1.3rem; color: #a7f3d0; margin-bottom: 40px;">
+            Every ride counts. Track your impact, earn rewards, save the planet.
+          </p>
+          <a href="#contact" class="btn btn-primary"
+            style="font-size: 1.2rem; padding: 20px 50px; background: linear-gradient(135deg, #10b981 0%, #22c55e 100%); border: none; box-shadow: 0 0 40px rgba(16, 185, 129, 0.5); transition: all 0.5s ease;">
+            Start Saving CO₂ Today 🌱
+          </a>
+        </div>
+      </div>
+
+      <!-- Add CSS Animation -->
+      <style>
+        @keyframes float {
+
+          0%,
+          100% {
+            transform: translateY(0px);
+          }
+
+          50% {
+            transform: translateY(-20px);
+          }
+        }
+
+        @keyframes pulse {
+
+          0%,
+          100% {
+            opacity: 0.3;
+            transform: scale(1);
+          }
+
+          50% {
+            opacity: 0.6;
+            transform: scale(1.1);
+          }
+        }
+
+        .carbon-section .feature-card:hover,
+        .carbon-section .driver-feature-item:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 16px 48px rgba(16, 185, 129, 0.3) !important;
+        }
+      </style>
     </section>
 
     <!-- Partners Section -->
@@ -666,6 +1475,79 @@
             </div>
             <h3>Municipal Transport</h3>
             <p>Partner with city transport authorities for integrated public mobility.</p>
+            <a href="#contact" class="partner-link">Learn More →</a>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <h3>Fleet Owners</h3>
+            <p>Manage your entire fleet with our platform. Real-time tracking, analytics, and driver management.</p>
+            <a href="#contact" class="partner-link">Learn More →</a>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h3>Hotels & Tourism</h3>
+            <p>Provide seamless transport for your guests. Dedicated service, priority bookings, and billing
+              integration.</p>
+            <a href="#contact" class="partner-link">Learn More →</a>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <h3>Educational Institutions</h3>
+            <p>Safe, tracked transport for students. Parent monitoring, scheduled routes, and bulk booking options.</p>
+            <a href="#contact" class="partner-link">Learn More →</a>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                <line x1="8" y1="8" x2="8" y2="8"></line>
+              </svg>
+            </div>
+            <h3>Delivery Services</h3>
+            <p>Expand your delivery network with our two-wheeler and four-wheeler partners. Real-time tracking included.
+            </p>
+            <a href="#contact" class="partner-link">Learn More →</a>
+          </div>
+
+          <div class="partner-card">
+            <div class="partner-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="7"></circle>
+                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+              </svg>
+            </div>
+            <h3>Government Agencies</h3>
+            <p>Smart city integration, public transport digitization, and data-driven mobility insights for policy
+              making.</p>
             <a href="#contact" class="partner-link">Learn More →</a>
           </div>
         </div>
@@ -756,10 +1638,29 @@
         <div class="contact-content">
           <h2 id="contact-heading">Ready to Transform Mobility?</h2>
           <p>Join thousands of drivers and passengers already using TapToTravel</p>
-          <div class="contact-cta">
-            <a href="#" class="btn btn-primary btn-large">Download App</a>
-            <a href="#" class="btn btn-secondary btn-large">Contact Sales</a>
+
+          <div class="contact-form-container glass-premium">
+            <form name="contact" method="POST" data-netlify="true" class="contact-form">
+              <div class="form-group">
+                <input type="text" name="name" placeholder="Your Name" required class="form-input">
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required class="form-input">
+              </div>
+              <div class="form-group">
+                <select name="subject" class="form-input">
+                  <option value="General">General Inquiry</option>
+                  <option value="Partner">Become a Partner</option>
+                  <option value="Support">Support</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder="Your Message" rows="4" required class="form-input"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">Send Message</button>
+            </form>
           </div>
+
           <div class="contact-info">
             <div class="contact-item">
               <span class="contact-icon">💬</span>
@@ -767,7 +1668,8 @@
             </div>
             <div class="contact-item">
               <span class="contact-icon">📧</span>
-              <span>support@taptotravel.com</span>
+              <a href="mailto:support@taptotravel.com"
+                style="color: inherit; text-decoration: none;">support@taptotravel.com</a>
             </div>
             <div class="contact-item">
               <span class="contact-icon">📱</span>
@@ -778,6 +1680,27 @@
       </div>
     </section>
   </main>
+
+  <!-- Waitlist Modal -->
+  <div id="waitlist-modal" class="modal-overlay">
+    <div class="modal-content glass-premium">
+      <button class="modal-close">&times;</button>
+      <h3>Join the Waitlist</h3>
+      <p>Be the first to experience the future of mobility.</p>
+      <form name="waitlist" method="POST" data-netlify="true" class="waitlist-form">
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Enter your email" required class="form-input">
+        </div>
+        <div class="form-group">
+          <select name="type" class="form-input">
+            <option value="Passenger">I am a Passenger</option>
+            <option value="Driver">I am a Driver</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Join Waitlist</button>
+      </form>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer" role="contentinfo">

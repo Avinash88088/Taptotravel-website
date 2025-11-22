@@ -22,13 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Register Plugins
     gsap.registerPlugin(ScrollTrigger);
 
-    // 3. Initialize Lenis Smooth Scroll
+    // 3. Initialize Lenis Smooth Scroll (Optimized)
+    const isMobile = window.innerWidth < 768;
+
     const lenis = new Lenis({
-        duration: 1.2,
+        duration: isMobile ? 0.8 : 1.2, // Faster on mobile
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         direction: 'vertical',
         gestureDirection: 'vertical',
-        smooth: true,
+        smooth: !isMobile, // Disable smooth scroll on mobile for performance
         mouseMultiplier: 1,
         smoothTouch: false,
         touchMultiplier: 2,
@@ -38,7 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
         lenis.raf(time);
         requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+
+    if (!isMobile) {
+        requestAnimationFrame(raf);
+    }
 
     // Connect Lenis to ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
@@ -221,40 +226,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3D Tilt Effect for Cards
-    const tiltCards = document.querySelectorAll('.glass-premium, .glass-card, .step-card, .feature-card, .partner-card');
-    tiltCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+    // 3D Tilt Effect for Cards (Desktop only for performance)
+    if (!isMobile) {
+        const tiltCards = document.querySelectorAll('.glass-premium, .glass-card, .step-card, .feature-card, .partner-card');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
 
-            // Subtle tilt
-            const rotateX = ((y - centerY) / centerY) * -5;
-            const rotateY = ((x - centerX) / centerX) * 5;
+                // Subtle tilt
+                const rotateX = ((y - centerY) / centerY) * -5;
+                const rotateY = ((x - centerX) / centerX) * 5;
 
-            gsap.to(card, {
-                transformPerspective: 1000,
-                rotateX: rotateX,
-                rotateY: rotateY,
-                scale: 1.02,
-                duration: 0.4,
-                ease: 'power2.out'
+                gsap.to(card, {
+                    transformPerspective: 1000,
+                    rotateX: rotateX,
+                    rotateY: rotateY,
+                    scale: 1.02,
+                    duration: 0.4,
+                    ease: 'power2.out'
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    rotateX: 0,
+                    rotateY: 0,
+                    scale: 1,
+                    duration: 0.6,
+                    ease: 'power2.out'
+                });
             });
         });
-
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-                rotateX: 0,
-                rotateY: 0,
-                scale: 1,
-                duration: 0.6,
-                ease: 'power2.out'
-            });
-        });
-    });
+    }
 
     // 8. UI Logic (Navbar, FAQ, Mobile Menu)
 
@@ -310,18 +317,41 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.faq-item.active').forEach(i => {
                 if (i !== item) {
                     i.classList.remove('active');
-                    gsap.to(i.querySelector('.faq-answer'), { height: 0, opacity: 0, duration: 0.3 });
+                    const otherAnswer = i.querySelector('.faq-answer');
+                    gsap.to(otherAnswer, {
+                        height: 0,
+                        opacity: 0,
+                        duration: 0.3,
+                        onComplete: () => {
+                            otherAnswer.style.display = 'none';
+                        }
+                    });
                 }
             });
 
             // Toggle current
             if (isOpen) {
                 item.classList.remove('active');
-                gsap.to(answer, { height: 0, opacity: 0, duration: 0.3 });
+                gsap.to(answer, {
+                    height: 0,
+                    opacity: 0,
+                    duration: 0.3,
+                    onComplete: () => {
+                        gsap.set(answer, { display: 'none' });
+                    }
+                });
             } else {
                 item.classList.add('active');
-                gsap.set(answer, { height: 'auto' });
-                gsap.from(answer, { height: 0, opacity: 0, duration: 0.3 });
+                // Set initial state for animation
+                gsap.set(answer, { display: 'block', height: 0, opacity: 0 });
+
+                // Animate to auto height
+                gsap.to(answer, {
+                    height: 'auto',
+                    opacity: 1,
+                    duration: 0.4,
+                    ease: 'power2.out'
+                });
             }
         });
     });
@@ -362,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const distanceValue = document.getElementById('distance-value');
     const fareValue = document.getElementById('fare-value');
 
-    if (estimator && distanceSlider) {
+    if (estimator && distanceSlider && !isMobile) {
         // Show widget after scrolling past hero
         ScrollTrigger.create({
             trigger: '.hero',
@@ -404,6 +434,51 @@ document.addEventListener('DOMContentLoaded', () => {
                     fareValue.textContent = `₹${Math.round(counter.val)}`;
                 }
             });
+        });
+    }
+
+    // 11. Waitlist Modal Logic
+    const waitlistModal = document.getElementById('waitlist-modal');
+    const modalClose = waitlistModal ? waitlistModal.querySelector('.modal-close') : null;
+    const downloadButtons = document.querySelectorAll('a[href="#"], .btn-primary:not([type="submit"])'); // Target "Download App" buttons
+
+    if (waitlistModal) {
+        const openModal = (e) => {
+            e.preventDefault();
+            waitlistModal.classList.add('active');
+            gsap.fromTo(waitlistModal.querySelector('.modal-content'),
+                { scale: 0.9, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' }
+            );
+        };
+
+        const closeModal = () => {
+            waitlistModal.classList.remove('active');
+        };
+
+        // Attach to all "Download App" type buttons
+        downloadButtons.forEach(btn => {
+            if (btn.textContent.includes('Download App')) {
+                btn.addEventListener('click', openModal);
+            }
+        });
+
+        if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+        }
+
+        // Close on click outside
+        waitlistModal.addEventListener('click', (e) => {
+            if (e.target === waitlistModal) {
+                closeModal();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && waitlistModal.classList.contains('active')) {
+                closeModal();
+            }
         });
     }
 

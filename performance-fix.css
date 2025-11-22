@@ -1,0 +1,107 @@
+/* Performance Optimization CSS */
+
+/* Reduce blur on mobile for better performance */
+@media (max-width: 768px) {
+
+    /* Disable heavy effects on mobile */
+    .glass-premium,
+    .feature-card,
+    .driver-feature-item,
+    .partner-card,
+    .safety-card {
+        backdrop-filter: blur(8px) !important;
+        -webkit-backdrop-filter: blur(8px) !important;
+    }
+
+    /* Disable 3D transforms on mobile */
+    * {
+        transform: none !important;
+        transform-style: flat !important;
+        perspective: none !important;
+    }
+
+    /* Simplify animations on mobile */
+    * {
+        animation-duration: 0.2s !important;
+        transition-duration: 0.2s !important;
+    }
+
+    /* Disable parallax on mobile */
+    [data-parallax] {
+        transform: none !important;
+    }
+
+    /* Hide Fare Estimator on Mobile */
+    #fare-estimator-widget {
+        display: none !important;
+    }
+
+    /* Mobile Polish */
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem !important;
+    }
+
+    .section-title {
+        font-size: 2rem !important;
+    }
+
+    /* Fix padding for cards on mobile */
+    .feature-card,
+    .step-card,
+    .partner-card {
+        padding: 24px !important;
+    }
+
+    /* Optimize Gamification Section for Mobile */
+    .gamification-container {
+        padding: 30px !important;
+        margin: 40px 0 !important;
+    }
+}
+
+/* Use GPU acceleration wisely */
+.feature-card,
+.driver-feature-item,
+.partner-card,
+.safety-card,
+.step-card {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Optimize hover states */
+.feature-card:hover,
+.driver-feature-item:hover,
+.partner-card:hover {
+    will-change: transform, box-shadow;
+}
+
+/* Remove will-change after animation */
+.feature-card:not(:hover),
+.driver-feature-item:not(:hover),
+.partner-card:not(:hover) {
+    will-change: auto;
+}
+
+/* Reduce repaints */
+.navbar {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Optimize images */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Lazy load off-screen content */
+.lazy-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+}

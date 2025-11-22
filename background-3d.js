@@ -3,6 +3,11 @@ import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/js
 
 console.log('Global 3D Background initializing with Scrollytelling...');
 
+// Performance Detection
+const isMobile = window.innerWidth < 768;
+const isLowEnd = isMobile || (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4);
+console.log(`Device: ${isMobile ? 'Mobile' : 'Desktop'}, Low-end: ${isLowEnd}`);
+
 const container = document.createElement('div');
 container.id = 'global-3d-bg';
 container.style.position = 'fixed';
@@ -19,10 +24,14 @@ const scene = new THREE.Scene();
 scene.fog = new THREE.FogExp2(0x000000, 0.02);
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+const renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    antialias: !isLowEnd, // Disable antialiasing on low-end devices
+    powerPreference: isLowEnd ? 'low-power' : 'high-performance'
+});
 
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Optimize for high DPI
+renderer.setPixelRatio(isLowEnd ? 1 : Math.min(window.devicePixelRatio, 2)); // Cap at 1 for low-end
 container.appendChild(renderer.domElement);
 
 // --- Lighting ---
@@ -41,7 +50,7 @@ const globeGroup = new THREE.Group();
 scene.add(globeGroup);
 
 // Wireframe Sphere
-const geometry = new THREE.IcosahedronGeometry(2.5, 2);
+const geometry = new THREE.IcosahedronGeometry(2.5, isLowEnd ? 1 : 2); // Reduce detail on low-end
 const material = new THREE.MeshBasicMaterial({
     color: 0x2997ff,
     wireframe: true,
@@ -52,7 +61,7 @@ const globe = new THREE.Mesh(geometry, material);
 globeGroup.add(globe);
 
 // Inner Core (Solid dark sphere to block background)
-const coreGeometry = new THREE.IcosahedronGeometry(2.4, 2);
+const coreGeometry = new THREE.IcosahedronGeometry(2.4, isLowEnd ? 1 : 2); // Reduce detail on low-end
 const coreMaterial = new THREE.MeshBasicMaterial({
     color: 0x000000
 });
@@ -61,7 +70,7 @@ globeGroup.add(core);
 
 // Glowing Dots (Cities)
 const dotsGeometry = new THREE.BufferGeometry();
-const dotsCount = 50;
+const dotsCount = isLowEnd ? 30 : 50; // Reduce dots on low-end
 const dotsPos = new Float32Array(dotsCount * 3);
 
 for (let i = 0; i < dotsCount * 3; i += 3) {
@@ -89,7 +98,7 @@ globeGroup.rotation.y = -0.2;
 
 // 2. Digital Tunnel (Particles)
 const particlesGeometry = new THREE.BufferGeometry();
-const particlesCount = 2000;
+const particlesCount = isLowEnd ? 800 : 2000; // Drastically reduce particles on low-end
 const posArray = new Float32Array(particlesCount * 3);
 
 for (let i = 0; i < particlesCount * 3; i++) {
@@ -115,10 +124,11 @@ const geoMaterial = new THREE.MeshStandardMaterial({
     color: 0x1c1c1e,
     wireframe: true,
     emissive: 0x2997ff,
-    emissiveIntensity: 0.5
+    emissiveIntensity: isLowEnd ? 0.3 : 0.5 // Reduce emissive on low-end
 });
 
-for (let i = 0; i < 5; i++) {
+const shapeCount = isLowEnd ? 3 : 5; // Fewer shapes on low-end
+for (let i = 0; i < shapeCount; i++) {
     const mesh = new THREE.Mesh(geoGeometry, geoMaterial);
     mesh.position.set(
         (Math.random() - 0.5) * 20,
@@ -289,7 +299,7 @@ document.addEventListener('mousemove', (e) => {
 const partnersGlobeGroup = new THREE.Group();
 scene.add(partnersGlobeGroup);
 
-const pGlobeGeo = new THREE.IcosahedronGeometry(3, 1);
+const pGlobeGeo = new THREE.IcosahedronGeometry(3, isLowEnd ? 0 : 1); // Reduce detail on low-end
 const pGlobeMat = new THREE.MeshBasicMaterial({
     color: 0x2997ff,
     wireframe: true,
@@ -301,7 +311,7 @@ partnersGlobeGroup.add(partnersGlobeMesh);
 
 // Add some connecting lines/network effect
 const pDotsGeo = new THREE.BufferGeometry();
-const pDotsCount = 100;
+const pDotsCount = isLowEnd ? 50 : 100; // Reduce dots on low-end
 const pDotsPos = new Float32Array(pDotsCount * 3);
 for (let i = 0; i < pDotsCount * 3; i += 3) {
     const r = 3;
