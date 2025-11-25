@@ -77,16 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }, '-=0.6');
 
         // Parallax Effect for Hero 3D Container
-        gsap.to('#hero-3d', {
+        gsap.to('#global-3d-bg', {
             scrollTrigger: {
                 trigger: '.hero',
                 start: 'top top',
                 end: 'bottom top',
                 scrub: 1.5
             },
-            y: 200,
-            scale: 0.85,
-            opacity: 0.2
+            y: 200
+            // scale: 0.85, // Removed to prevent "rectangle" artifact
+            // opacity: 0.2 // Removed to prevent "rectangle" artifact
         });
     };
 
@@ -481,5 +481,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 12. Content Protection (Anti-Copy)
+    // Disable right-click
+    document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        // Optional: Show a toast or alert
+        // alert('Content is protected.');
+    });
+
+    // Disable copy/cut/paste
+    document.addEventListener('copy', (e) => {
+        e.preventDefault();
+    });
+    document.addEventListener('cut', (e) => {
+        e.preventDefault();
+    });
+    document.addEventListener('paste', (e) => {
+        e.preventDefault();
+    });
+
+    // Disable specific keyboard shortcuts (Cmd+C, Cmd+U, etc.)
+    document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'p')) {
+            e.preventDefault();
+        }
+    });
 
 });

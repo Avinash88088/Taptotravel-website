@@ -9,6 +9,9 @@
   <!-- SEO / Social -->
   <meta name="description"
     content="TapToTravel — Tap. Ride. Go. NFC boarding, live GPS fare, offline-first hardware & apps for autos, e-rickshaws and taxis." />
+  <meta name="copyright" content="TapToTravel" />
+  <meta name="author" content="Avinash Kumar" />
+  <meta name="robots" content="noindex, nofollow" /> <!-- Prevents search engines from indexing/archiving -->
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +23,7 @@
 
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="styles.css?v=2">
-  <link rel="stylesheet" href="cursor.css">
+  <!-- <link rel="stylesheet" href="cursor.css"> --> <!-- Disabled for performance -->
   <link rel="stylesheet" href="performance-fix.css">
 
   <!-- Critical inline styles -->
@@ -77,6 +80,7 @@
         <li role="none"><a role="menuitem" href="#hardware">Hardware</a></li>
         <li role="none"><a role="menuitem" href="#technology">Technology</a></li>
         <li role="none"><a role="menuitem" href="#partners">Partners</a></li>
+        <li role="none"><a role="menuitem" href="about.html">About</a></li>
         <li role="none"><a role="menuitem" href="#contact" class="btn-nav">Get Started</a></li>
       </ul>
 
@@ -105,9 +109,6 @@
             <div class="hero-cta">
               <a href="#contact" class="btn btn-primary">Download App</a>
               <a href="#partners" class="btn btn-secondary">Partner with Us</a>
-              <button class="btn btn-secondary" style="gap:8px" onclick="alert('AR View launching soon!')">
-                <span>🧊</span> View in AR
-              </button>
             </div>
 
             <div class="hero-features">
@@ -239,8 +240,7 @@
         </h2>
 
         <div class="features-grid">
-          <a href="features/live-fare.html" class="feature-card glass-premium"
-            style="text-decoration: none; color: inherit;">
+          <a class='feature-card glass-premium' href='/features/live-fare' style='text-decoration: none; color: inherit;'>
             <div class="feature-icon">📊</div>
             <h3>Live Fare Display</h3>
             <p>See real-time fare calculation as you ride. No surprises, complete transparency.</p>
@@ -252,15 +252,13 @@
             <p>Verified driver profiles with ratings, photo, and vehicle details for your safety.</p>
           </div>
 
-          <a href="features/safety.html" class="feature-card glass-premium"
-            style="text-decoration: none; color: inherit;">
+          <a class='feature-card glass-premium' href='/features/safety' style='text-decoration: none; color: inherit;'>
             <div class="feature-icon">🛡️</div>
             <h3>Safety Features</h3>
             <p>SOS button, real-time tracking, route deviation alerts, and emergency contacts.</p>
           </a>
 
-          <a href="features/languages.html" class="feature-card glass-premium"
-            style="text-decoration: none; color: inherit;">
+          <a class='feature-card glass-premium' href='/features/languages' style='text-decoration: none; color: inherit;'>
             <div class="feature-icon">🌐</div>
             <h3>12+ Languages</h3>
             <p>Support for Hindi, English, Arabic, Gujarati, Kannada, Malayalam, Tamil, Telugu, Bengali, Urdu, and more.
@@ -273,31 +271,27 @@
             <p>Instant receipts and complete ride history. Track all your trips in one place.</p>
           </div>
 
-          <a href="features/vira-ai.html" class="feature-card glass-premium"
-            style="text-decoration: none; color: inherit;">
+          <a class='feature-card glass-premium' href='/features/vira-ai' style='text-decoration: none; color: inherit;'>
             <div class="feature-icon">🤖</div>
             <h3>VIRA AI Assistant</h3>
             <p>Advanced voice-enabled AI with emotional intelligence, personality modes, and "Hey Vira" wake-word. Works
               offline too.</p>
           </a>
 
-          <a href="features/nfc-boarding.html" class="feature-card glass-premium"
-            style="text-decoration: none; color: inherit;">
+          <a class='feature-card glass-premium' href='/features/nfc-boarding' style='text-decoration: none; color: inherit;'>
             <div class="feature-icon">📱</div>
             <h3>NFC Tap-to-Board</h3>
             <p>Instant boarding with NFC/RFID tap. No OTP, no waiting, no bargaining. Just tap your phone and go.</p>
           </a>
 
-          <a href="features/wallet.html" class="feature-card glass-premium"
-            style="text-decoration: none; color: inherit;">
+          <a class='feature-card glass-premium' href='/features/wallet' style='text-decoration: none; color: inherit;'>
             <div class="feature-icon">💳</div>
             <h3>Digital Wallet & QR</h3>
             <p>Built-in wallet with Razorpay integration, QR codes for quick payments, and complete transaction history.
             </p>
           </a>
 
-          <a href="features/saved-places.html" class="feature-card glass-premium"
-            style="text-decoration: none; color: inherit;">
+          <a class='feature-card glass-premium' href='/features/saved-places' style='text-decoration: none; color: inherit;'>
             <div class="feature-icon">📍</div>
             <h3>Saved Places</h3>
             <p>Save your favorite locations like home, work, and frequent destinations for one-tap booking.</p>
@@ -1702,6 +1696,7 @@
     </div>
   </div>
 
+
   <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <div class="container">
@@ -1725,7 +1720,7 @@
         <div class="footer-links">
           <h4>Company</h4>
           <ul>
-            <li><a href="#">About Us</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="#">Careers</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1768,9 +1763,8 @@
 
   <!-- Main Scripts -->
   <script type="module" src="background-3d.js"></script>
-  <script src="audio-manager.js"></script>
   <script src="main.js"></script>
-  <script src="cursor.js"></script>
+  <!-- <script src="cursor.js"></script> --> <!-- Disabled for better performance -->
 
 </body>
 
