@@ -1396,6 +1396,25 @@ section {
   stroke-width: 1.5;
 }
 
+/* Mobile Architecture Flow */
+@media (max-width: 768px) {
+  .arch-flow {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .arch-node {
+    width: 100%;
+    min-width: unset;
+    max-width: 280px;
+  }
+
+  .arch-arrow {
+    transform: rotate(90deg);
+    margin: 8px 0;
+  }
+}
+
 .tech-stack {
   display: flex;
   justify-content: center;
