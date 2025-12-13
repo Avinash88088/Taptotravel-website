@@ -1,12 +1,35 @@
 import * as THREE from 'https://cdn.skypack.dev/three@0.129.0/build/three.module.js';
 import { OrbitControls } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js';
 
-console.log('Global 3D Background initializing with Scrollytelling...');
+console.log('Global 3D Background initializing...');
 
-// Performance Detection
-const isMobile = window.innerWidth < 768;
-const isLowEnd = isMobile || (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4);
-console.log(`Device: ${isMobile ? 'Mobile' : 'Desktop'}, Low-end: ${isLowEnd}`);
+// ========================================
+// MOBILE DEVICE CHECK - EXIT ON ACTUAL MOBILE DEVICES
+// ========================================
+// Check for actual mobile devices using user agent, not screen width
+// Check for actual mobile devices using user agent, not screen width
+const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const isLowEnd = (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) || 
+                 (navigator.deviceMemory && navigator.deviceMemory < 4);
+
+console.log(`User Agent: ${navigator.userAgent}`);
+console.log(`Is Mobile Device: ${isMobileDevice}`);
+console.log(`Hardware Concurrency: ${navigator.hardwareConcurrency}`);
+console.log(`Device Memory: ${navigator.deviceMemory}`);
+
+if (isMobileDevice) {
+    console.log('Mobile device detected - 3D background disabled for performance');
+    // Exit early on mobile - don't initialize Three.js at all
+    // Don't throw error, just exit gracefully
+} else {
+    console.log(`Device: Desktop, Low-end: ${isLowEnd}, Cores: ${navigator.hardwareConcurrency}`);
+
+// ========================================
+// PERFORMANCE SETTINGS
+// ========================================
+const TARGET_FPS = 30; // Limit to 30fps for smooth performance
+const FRAME_INTERVAL = 1000 / TARGET_FPS;
+let lastFrameTime = 0;
 
 const container = document.createElement('div');
 container.id = 'global-3d-bg';
@@ -16,22 +39,20 @@ container.style.left = '0';
 container.style.width = '100%';
 container.style.height = '100%';
 container.style.zIndex = '1';
-container.style.pointerEvents = 'none'; // Allow clicks to pass through
+container.style.pointerEvents = 'none';
 document.body.prepend(container);
 
 const scene = new THREE.Scene();
-// Fog for depth (Removed to prevent "blue rectangle" artifact on transparent bg)
-// scene.fog = new THREE.FogExp2(0x000000, 0.02);
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({
     alpha: true,
-    antialias: !isLowEnd, // Disable antialiasing on low-end devices
-    powerPreference: isLowEnd ? 'low-power' : 'high-performance'
+    antialias: false, // Disable antialiasing for better performance
+    powerPreference: 'high-performance'
 });
 
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(isLowEnd ? 1 : Math.min(window.devicePixelRatio, 2)); // Cap at 1 for low-end
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Cap pixel ratio for performance
 container.appendChild(renderer.domElement);
 
 // --- Lighting ---
@@ -93,9 +114,9 @@ globeGroup.add(atmosphere);
 globeGroup.position.set(2, 0, -5);
 globeGroup.rotation.y = -0.2;
 
-// 2. Digital Tunnel (Particles - Stars)
+// 2. Digital Tunnel (Particles - Stars) - OPTIMIZED
 const particlesGeometry = new THREE.BufferGeometry();
-const particlesCount = isLowEnd ? 800 : 2000; 
+const particlesCount = isLowEnd ? 500 : 800; // Reduced for performance
 const posArray = new Float32Array(particlesCount * 3);
 
 for (let i = 0; i < particlesCount * 3; i++) {
@@ -151,11 +172,17 @@ window.addEventListener('scroll', () => {
     scrollPercent = scrollY / docHeight;
 });
 
-// --- Animation Loop ---
-const animate = () => {
+// --- Animation Loop with Frame Rate Limiting ---
+const animate = (currentTime) => {
     requestAnimationFrame(animate);
+    
+    // Frame rate limiting - only render at TARGET_FPS (30fps)
+    if (currentTime - lastFrameTime < FRAME_INTERVAL) {
+        return;
+    }
+    lastFrameTime = currentTime;
 
-    const time = Date.now() * 0.001;
+    const time = currentTime * 0.001;
 
     // 1. Camera Movement (The Journey)
     // Base movement
@@ -339,3 +366,4 @@ window.addEventListener('resize', handleResize);
 // Initial check
 handleResize();
 
+} // Close the else block from mobile detection

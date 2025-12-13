@@ -132,16 +132,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Apply standard scroll animations
-    animateOnScroll(gsap.utils.toArray('.section-title'), false);
-    animateOnScroll(gsap.utils.toArray('.step-card'), true);
-    animateOnScroll(gsap.utils.toArray('.feature-card'), true);
-    animateOnScroll(gsap.utils.toArray('.driver-feature-item'), true);
-    animateOnScroll(gsap.utils.toArray('.spec-card'), true);
-    animateOnScroll(gsap.utils.toArray('.arch-node'), true);
-    animateOnScroll(gsap.utils.toArray('.safety-card'), true);
-    animateOnScroll(gsap.utils.toArray('.partner-card'), true);
-    animateOnScroll(gsap.utils.toArray('.faq-item'), true);
+    // Apply standard scroll animations - SKIP on mobile for performance
+    if (!isMobile) {
+        animateOnScroll(gsap.utils.toArray('.section-title'), false);
+        animateOnScroll(gsap.utils.toArray('.step-card'), true);
+        animateOnScroll(gsap.utils.toArray('.feature-card'), true);
+        animateOnScroll(gsap.utils.toArray('.driver-feature-item'), true);
+        animateOnScroll(gsap.utils.toArray('.spec-card'), true);
+        animateOnScroll(gsap.utils.toArray('.arch-node'), true);
+        animateOnScroll(gsap.utils.toArray('.safety-card'), true);
+        animateOnScroll(gsap.utils.toArray('.partner-card'), true);
+        animateOnScroll(gsap.utils.toArray('.faq-item'), true);
+    }
 
     // 6. Special Animations
 
@@ -392,21 +394,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const distanceValue = document.getElementById('distance-value');
     const fareValue = document.getElementById('fare-value');
 
-    if (estimator && distanceSlider && !isMobile) {
+    // Check for actual mobile devices, not just small screens
+    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (estimator && distanceSlider && !isMobileDevice) {
         // Show widget after scrolling past hero
         ScrollTrigger.create({
             trigger: '.hero',
             start: 'bottom center',
             onEnter: () => {
-                gsap.to(estimator, { y: 0, opacity: 1, duration: 0.5 });
+                gsap.to(estimator, { opacity: 1, duration: 0.5 });
             },
             onLeaveBack: () => {
-                gsap.to(estimator, { y: 200, opacity: 0, duration: 0.5 });
+                gsap.to(estimator, { opacity: 0, duration: 0.5 });
             }
         });
 
         closeEstimator.addEventListener('click', () => {
-            gsap.to(estimator, { x: 400, opacity: 0, duration: 0.5 });
+            gsap.to(estimator, { opacity: 0, duration: 0.5 });
         });
 
         // Calculation Logic
