@@ -1,8 +1,8 @@
-# TapToTravel - Robots.txt
-# Allow all search engines to crawl the site
+# TapToTravel - robots.txt
+# Clean, SEO-optimized configuration
 
 User-agent: *
 Allow: /
 
-# Point to sitemap
+# Sitemap for Google indexing
 Sitemap: https://taptotravel.co.in/sitemap.xml
