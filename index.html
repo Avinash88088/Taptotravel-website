@@ -12,8 +12,53 @@
     />
     <meta name="copyright" content="TapToTravel" />
     <meta name="author" content="Avinash Kumar" />
-    <meta name="robots" content="noindex, nofollow" />
-    <!-- Prevents search engines from indexing/archiving -->
+    <meta name="robots" content="index, follow" />
+    <!-- Allow search engines to index and follow links -->
+
+    <!-- Schema.org Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "TapToTravel",
+      "url": "https://taptotravel.co.in",
+      "logo": "https://taptotravel.co.in/taptotravel-logo.webp",
+      "description": "TapToTravel is India's first NFC-powered smart mobility platform for autos, e-rickshaws, cabs, and buses with instant tap-to-board technology.",
+      "founder": {
+        "@type": "Person",
+        "name": "Avinash Kumar"
+      },
+      "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "TapToTravel",
+      "url": "https://taptotravel.co.in",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://taptotravel.co.in/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "TapToTravel App",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "Android, iOS",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "description": "Smart mobility app with NFC tap-to-board, live GPS fare calculation, AI assistant, and digital wallet for autos, e-rickshaws and taxis."
+    }
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="taptotravel-logo.webp" />
