@@ -791,11 +791,9 @@ section {
 .safety-grid,
 .partners-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(320px, 1fr)
-  ); /* Reduced min-width */
-  gap: 28px; /* Reduced gap */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: stretch;
 }
 
 .feature-card,
@@ -804,7 +802,7 @@ section {
   background: rgba(28, 28, 30, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 32px;
-  padding: 48px 32px; /* Reduced padding */
+  padding: 40px 28px;
   transition: var(--transition-smooth);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -813,6 +811,7 @@ section {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  min-height: 320px;
   height: 100%;
   cursor: pointer;
 }
