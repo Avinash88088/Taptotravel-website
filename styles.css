@@ -2922,3 +2922,193 @@ section {
     padding: 24px !important;
   }
 }
+
+/* ============================================
+   Premium Micro-Interactions
+   ============================================ */
+
+/* Button Pulse Effect on Hover */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  will-change: transform, box-shadow;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-primary:active {
+  transform: scale(0.97) !important;
+  transition: transform 0.1s ease;
+}
+
+/* Card Magnetic Hover Effect */
+.feature-card,
+.step-card,
+.glass-premium {
+  will-change: transform, box-shadow;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease;
+}
+
+.feature-card:hover,
+.step-card:hover,
+.glass-premium:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(79, 172, 254, 0.15),
+              0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth Icon Bounce */
+.feature-icon,
+.step-icon {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.feature-card:hover .feature-icon,
+.step-card:hover .step-icon {
+  transform: scale(1.15) translateY(-5px);
+}
+
+/* Gradient Text Shimmer Animation */
+@keyframes gradientShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text {
+  background-size: 200% 200%;
+  animation: gradientShimmer 4s ease infinite;
+}
+
+/* Link Underline Animation */
+.nav-menu a {
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gradient);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* FAQ Accordion Smooth Animation */
+.faq-question {
+  transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.faq-question:hover {
+  padding-left: 20px;
+  background: rgba(79, 172, 254, 0.05);
+}
+
+/* Social Icons Pop Effect */
+footer a[title] {
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              color 0.3s ease;
+}
+
+footer a[title]:hover {
+  transform: scale(1.25) translateY(-3px);
+  color: #4FACFE !important;
+}
+
+/* Loading Skeleton Shimmer */
+@keyframes skeletonShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.03) 25%, 
+    rgba(255,255,255,0.08) 50%, 
+    rgba(255,255,255,0.03) 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s infinite;
+}
+
+/* Smooth Scroll Indicator */
+@keyframes scrollIndicator {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(10px); opacity: 0.5; }
+}
+
+.scroll-indicator {
+  animation: scrollIndicator 2s ease infinite;
+}
+
+/* Stats Number Counter Effect */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Performance Optimizations */
+img {
+  content-visibility: auto;
+}
+
+section {
+  contain: layout style;
+}
+
+/* GPU Acceleration for Smoother Animations */
+.feature-card,
+.step-card,
+.glass-premium,
+.btn,
+.nav-menu a {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Lazy Load Images */
+img[loading="lazy"] {
+  transition: opacity 0.3s ease;
+}
+
+/* Focus States for Accessibility */
+*:focus-visible {
+  outline: 2px solid #4FACFE;
+  outline-offset: 4px;
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
