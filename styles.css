@@ -1259,10 +1259,9 @@ section {
 
 .steps-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  align-items: start;
-  /* Align tops */
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  align-items: stretch;
   margin-top: 60px;
 }
 
@@ -1996,7 +1995,7 @@ section {
 /* Desktop Overrides to prevent stacking issues */
 @media (min-width: 769px) {
   .steps-container {
-    grid-template-columns: repeat(5, 1fr) !important;
+    grid-template-columns: repeat(6, 1fr) !important;
   }
 
   .features-grid {
