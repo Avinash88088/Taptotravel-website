@@ -651,7 +651,7 @@ section {
   align-items: center !important;
   justify-content: flex-start;
   text-align: center !important;
-  padding: 40px 32px;
+  padding: 40px 24px;
   position: relative;
   background: var(--glass-bg);
   border-radius: 28px;
@@ -660,6 +660,7 @@ section {
   box-shadow: var(--glass-shadow);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
+  min-height: 400px;
   height: 100%;
   overflow: hidden;
   cursor: pointer;
