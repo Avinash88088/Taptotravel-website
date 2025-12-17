@@ -76,18 +76,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 ease: 'power3.out'
             }, '-=0.6');
 
-        // Parallax Effect for Hero 3D Container
-        gsap.to('#global-3d-bg', {
-            scrollTrigger: {
-                trigger: '.hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: 1.5
-            },
-            y: 200
-            // scale: 0.85, // Removed to prevent "rectangle" artifact
-            // opacity: 0.2 // Removed to prevent "rectangle" artifact
-        });
+        // Parallax Effect for Hero 3D Container - Only if element exists
+        const global3dBg = document.getElementById('global-3d-bg');
+        if (global3dBg) {
+            gsap.to('#global-3d-bg', {
+                scrollTrigger: {
+                    trigger: '.hero',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1.5
+                },
+                y: 200
+                // scale: 0.85, // Removed to prevent "rectangle" artifact
+                // opacity: 0.2 // Removed to prevent "rectangle" artifact
+            });
+        }
     };
 
     initHeroAnimations();
