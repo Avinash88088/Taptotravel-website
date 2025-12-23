@@ -369,13 +369,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.addEventListener('click', (e) => {
         const target = e.target;
 
-        // Generic redirect helper
+        // Skip if clicking on a link or button (including children of links/buttons)
+        if (target.closest('a') || target.closest('button') || target.tagName === 'A' || target.tagName === 'BUTTON') {
+            return; // Let the native link/button behavior work
+        }
+
+        // Generic redirect helper for card clicks
         const checkAndRedirect = (selector, type) => {
             const element = target.closest(selector);
             if (element) {
-                // Don't redirect if clicking a button or link inside the card
-                if (target.tagName === 'A' || target.tagName === 'BUTTON') return;
-
                 console.log(`Navigating to details: ${type}`);
                 window.location.href = `details.html?topic=${type}`;
             }
