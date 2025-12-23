@@ -5,14 +5,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Details — TapToTravel</title>
+    
+    <!-- Dynamic SEO Meta Tags (updated by JS) -->
+    <meta name="description" content="Learn more about TapToTravel's smart mobility features, technology, and solutions." />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph (updated by JS) -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Details — TapToTravel" />
+    <meta property="og:description" content="Learn more about TapToTravel's smart mobility platform." />
+    <meta property="og:url" content="https://taptotravel.co.in/details.html" />
+    <meta property="og:image" content="https://taptotravel.co.in/taptotravel-logo.webp" />
 
-    <!-- Fonts -->
+    <!-- Fonts - Preloaded for FCP boost -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Noscript Fallback -->
+    <noscript>
+        <style>
+            #page-title { content: 'JavaScript Required'; }
+            #page-content::before { content: 'Please enable JavaScript to view this page.'; }
+        </style>
+    </noscript>
 
     <style>
         .details-hero {
@@ -29,6 +49,27 @@
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             backdrop-filter: blur(12px);
+            /* Fade-in animation */
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s ease-out forwards;
+            animation-delay: 0.1s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Respect reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .details-content {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
         }
 
         .details-content h2 {
@@ -74,16 +115,49 @@
         .back-btn:hover {
             color: var(--accent-blue);
         }
+
+        .back-btn:focus-visible {
+            outline: 2px solid #4FACFE;
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+
+        /* Error/Not Found State */
+        .error-state {
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .error-state h2 {
+            color: #ff6b6b;
+            margin-bottom: 16px;
+        }
+
+        .error-state .home-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: var(--accent-gradient, linear-gradient(135deg, #4FACFE, #00F2FE));
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .error-state .home-link:hover {
+            opacity: 0.9;
+        }
     </style>
 </head>
 
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">
+            <a href="index.html" class="logo" aria-label="TapToTravel Home">
+                <div class="logo-icon" aria-hidden="true">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -96,23 +170,31 @@
         </div>
     </nav>
 
-    <main>
-        <section class="details-hero">
+    <main id="main-content" role="main">
+        <section class="details-hero" aria-labelledby="page-title">
             <div class="container">
-                <a href="index.html" class="back-btn">← Back to Home</a>
+                <a href="index.html" class="back-btn" aria-label="Go back to home page">
+                    <span aria-hidden="true">←</span> Back to Home
+                </a>
                 <h1 id="page-title" class="hero-title">Loading...</h1>
             </div>
         </section>
 
         <section class="container">
-            <div id="page-content" class="details-content">
+            <!-- ARIA: role="article" and aria-live for screen readers -->
+            <article 
+                id="page-content" 
+                class="details-content" 
+                role="article" 
+                aria-labelledby="page-title"
+                aria-live="polite">
                 <!-- Content will be injected here -->
-            </div>
+            </article>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-bottom">
                 <p>&copy; <span id="year">2025</span> TapToTravel. All rights reserved.</p>
@@ -121,10 +203,13 @@
     </footer>
 
     <script>
+        // Topic data with excerpts for SEO
         const data = {
             'step-card': {
                 title: 'Problem Statement & Solution',
+                excerpt: 'Learn about India\'s public transport challenges and how TapToTravel solves them with NFC tap-to-board technology.',
                 content: `
+          <h2>The Challenge & Our Solution</h2>
           <p><strong>The Problem:</strong> India's public transport is manual, cash-based, unfair, unorganized, unsafe, and completely non-transparent. Core issues include daily disputes, "no change" (chutta) issues, and lack of data.</p>
           <p><strong>The Solution:</strong> TapToTravel is a one-stop ecosystem providing NFC/RFID-based seamless travel. It offers:</p>
           <ul>
@@ -137,7 +222,9 @@
             },
             'feature-card': {
                 title: 'Value Proposition',
+                excerpt: 'Discover TapToTravel\'s value for passengers and drivers - cashless payments, real-time tracking, and zero commission.',
                 content: `
+          <h2>What We Offer</h2>
           <p><strong>Instant, Seamless Travel:</strong> One Tap to Start & End. No OTP, no waiting, no bargaining.</p>
           <p><strong>For Passengers:</strong></p>
           <ul>
@@ -155,7 +242,9 @@
             },
             'driver-feature-item': {
                 title: 'Market Opportunity',
+                excerpt: 'Explore India\'s public transport market opportunity - TAM, SAM, SOM and the gap TapToTravel fills.',
                 content: `
+          <h2>The Market</h2>
           <p><strong>Total Addressable Market (TAM):</strong> Entire India public transport market (Buses + Autos + E-rickshaws + Cabs). Average daily spend is ₹20-₹40.</p>
           <p><strong>Serviceable Obtainable Market (SOM):</strong> Focusing initially on Tier-2/3 cities and college campuses where digital adoption is growing but transport remains analog.</p>
           <p><strong>Gap:</strong> Uber/Ola are too expensive for daily commute. Public transport is cheap but broken. TapToTravel bridges this gap.</p>
@@ -163,8 +252,10 @@
             },
             'hardware-device-img': {
                 title: 'Hardware System',
+                excerpt: 'Technical details of TapToTravel\'s ESP32-based transport module with NFC, GPS, and OLED display.',
                 content: `
-          <p><strong>TapToTravel Module:</strong> An advanced, high-efficiency ESP32-based transport module installed in vehicles.</p>
+          <h2>TapToTravel Module</h2>
+          <p><strong>Overview:</strong> An advanced, high-efficiency ESP32-based transport module installed in vehicles.</p>
           <p><strong>Key Components:</strong></p>
           <ul>
             <li><strong>ESP32 (Brain):</strong> Dual-core processor with Wi-Fi/BLE</li>
@@ -177,7 +268,9 @@
             },
             'arch-node': {
                 title: 'Software Architecture',
+                excerpt: 'TapToTravel\'s cloud-native architecture - Flutter apps, Firebase backend, and Vira AI engine.',
                 content: `
+          <h2>Technical Architecture</h2>
           <p><strong>High-Level Structure:</strong> A robust, scalable cloud-native architecture.</p>
           <ul>
             <li><strong>Mobile Apps:</strong> Flutter (iOS/Android) for Passengers & Drivers</li>
@@ -189,7 +282,9 @@
             },
             'contact-item': {
                 title: 'Vira AI Assistant',
+                excerpt: 'Meet Vira AI - TapToTravel\'s conversational assistant with 12+ Indian language support.',
                 content: `
+          <h2>Vira AI</h2>
           <p><strong>Truly Conversational AI:</strong> Vira AI provides natural voice and text interaction for users.</p>
           <p><strong>Capabilities:</strong></p>
           <ul>
@@ -201,20 +296,65 @@
             }
         };
 
-        // Parse URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const topic = urlParams.get('topic');
+        // Valid topic keys for whitelist validation
+        const VALID_TOPICS = Object.keys(data);
 
-        if (topic && data[topic]) {
-            document.getElementById('page-title').textContent = data[topic].title;
-            document.getElementById('page-content').innerHTML = data[topic].content;
-            document.title = `${data[topic].title} — TapToTravel`;
-        } else {
-            document.getElementById('page-title').textContent = 'Topic Not Found';
-            document.getElementById('page-content').innerHTML = '<p>Sorry, the requested information could not be found.</p>';
+        /**
+         * Safely update meta tag content
+         */
+        function updateMeta(selector, content) {
+            const el = document.querySelector(selector);
+            if (el) el.setAttribute('content', content);
         }
 
-        document.getElementById('year').textContent = new Date().getFullYear();
+        /**
+         * Render topic content with SEO updates
+         */
+        function renderTopic(topic) {
+            const titleEl = document.getElementById('page-title');
+            const contentEl = document.getElementById('page-content');
+            
+            // Whitelist validation
+            if (topic && VALID_TOPICS.includes(topic)) {
+                const topicData = data[topic];
+                
+                // Update page content
+                titleEl.textContent = topicData.title;
+                contentEl.innerHTML = topicData.content;
+                
+                // Update document title
+                document.title = `${topicData.title} — TapToTravel`;
+                
+                // Update SEO meta tags dynamically
+                updateMeta('meta[name="description"]', topicData.excerpt);
+                updateMeta('meta[property="og:title"]', `${topicData.title} — TapToTravel`);
+                updateMeta('meta[property="og:description"]', topicData.excerpt);
+                updateMeta('meta[property="og:url"]', `https://taptotravel.co.in/details.html?topic=${topic}`);
+                
+            } else {
+                // Error state with helpful UI
+                titleEl.textContent = 'Topic Not Found';
+                contentEl.innerHTML = `
+                    <div class="error-state">
+                        <h2>😕 Page Not Found</h2>
+                        <p>Sorry, the requested information could not be found.</p>
+                        <a href="index.html" class="home-link">← Back to Home</a>
+                    </div>
+                `;
+                contentEl.setAttribute('role', 'alert');
+            }
+        }
+
+        // Initialize
+        (function init() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const topic = urlParams.get('topic');
+            
+            renderTopic(topic);
+            
+            // Update year
+            document.getElementById('year').textContent = new Date().getFullYear();
+        })();
     </script>
 </body>
 

@@ -17,6 +17,16 @@
     <link rel="canonical" href="https://taptotravel.co.in/" />
     <!-- Allow search engines to index and follow links -->
 
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://cdn.skypack.dev;
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                   font-src 'self' https://fonts.gstatic.com;
+                   img-src 'self' data: https:;
+                   connect-src 'self' https:;" />
+
+
     <!-- Schema.org Structured Data for SEO -->
     <script type="application/ld+json">
     {
@@ -73,12 +83,19 @@
     </script>
 
     <!-- Google & Browser Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
     <!-- Apple -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- PWA / Android -->
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <meta name="theme-color" content="#000000">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -324,27 +341,27 @@
 
               <div class="hero-features">
                 <div class="feature-badge glass-premium">
-                  <span class="icon">⚡</span>
+                  <span class="icon" aria-hidden="true">⚡</span>
                   <span>Instant NFC Boarding</span>
                 </div>
                 <div class="feature-badge glass-premium">
-                  <span class="icon">📱</span>
+                  <span class="icon" aria-hidden="true">📱</span>
                   <span>Live GPS Fare</span>
                 </div>
                 <div class="feature-badge glass-premium">
-                  <span class="icon">🔒</span>
+                  <span class="icon" aria-hidden="true">🔒</span>
                   <span>Offline-First</span>
                 </div>
                 <div class="feature-badge glass-premium">
-                  <span class="icon">🤖</span>
+                  <span class="icon" aria-hidden="true">🤖</span>
                   <span>AI-Powered</span>
                 </div>
                 <div class="feature-badge glass-premium" style="border: 1px solid rgba(79, 172, 254, 0.4);">
-                  <span class="icon">📳</span>
+                  <span class="icon" aria-hidden="true">📳</span>
                   <span>Shake-to-Vira</span>
                 </div>
                 <div class="feature-badge glass-premium">
-                  <span class="icon">📷</span>
+                  <span class="icon" aria-hidden="true">📷</span>
                   <span>QR Boarding</span>
                 </div>
               </div>
@@ -357,6 +374,9 @@
       <div
         id="fare-estimator-widget"
         class="glass-premium"
+        role="region"
+        aria-label="Live fare estimator"
+        aria-live="polite"
         style="
           position: fixed;
           bottom: 30px;
@@ -1650,7 +1670,7 @@
                     <p class="founder-title">Founder & CEO</p>
 
                     <!-- LinkedIn Link -->
-                    <a href="https://www.linkedin.com/in/avinash-kumar-4a555b231" target="_blank" rel="noopener" 
+                    <a href="https://www.linkedin.com/in/avinash-kumar-4a555b231" target="_blank" rel="noopener noreferrer" 
                        style="display: inline-flex; align-items: center; gap: 8px; margin: 12px 0 16px; padding: 10px 20px; 
                               background: linear-gradient(135deg, #0077B5, #00A0DC); border-radius: 10px; 
                               color: white; font-weight: 500; font-size: 0.95rem; text-decoration: none;
@@ -4549,10 +4569,10 @@
     </main>
 
     <!-- Waitlist Modal -->
-    <div id="waitlist-modal" class="modal-overlay">
+    <div id="waitlist-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="waitlist-modal-title">
       <div class="modal-content glass-premium">
-        <button class="modal-close">&times;</button>
-        <h3>Join the Waitlist</h3>
+        <button class="modal-close" aria-label="Close waitlist modal">&times;</button>
+        <h3 id="waitlist-modal-title">Join the Waitlist</h3>
         <p>Be the first to experience the future of mobility.</p>
         <form
           name="waitlist"
@@ -4591,6 +4611,7 @@
               src="taptotravel-logo.webp"
               alt="TapToTravel Logo"
               class="logo-img"
+              loading="lazy"
             />
             <span class="brand-name">TapToTravel</span>
             <p>Smart Mobility Platform</p>
@@ -4671,7 +4692,7 @@
     <script defer src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
 
     <!-- Info Modal -->
-    <div id="info-modal" class="modal-overlay" aria-hidden="true">
+    <div id="info-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
       <div class="modal-content">
         <button class="modal-close" aria-label="Close modal">×</button>
         <div class="modal-header">

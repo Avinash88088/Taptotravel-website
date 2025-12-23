@@ -1,29 +1,51 @@
-/* Performance Optimization CSS */
+/* ============================================
+   TapToTravel - Performance Optimization CSS
+   ============================================ */
 
-/* Reduce blur on mobile for better performance */
+/* CSS Custom Properties for Theming */
+:root {
+    --motion-duration-fast: 0.2s;
+    --motion-duration-normal: 0.3s;
+    --motion-easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --blur-mobile: 8px;
+    --blur-desktop: 15px;
+    --focus-ring-color: #4FACFE;
+}
+
+/* ============================================
+   Mobile Performance Optimizations
+   ============================================ */
 @media (max-width: 768px) {
 
-    /* Disable heavy effects on mobile */
+    /* Reduce blur intensity on mobile for better performance */
     .glass-premium,
     .feature-card,
     .driver-feature-item,
     .partner-card,
     .safety-card {
-        backdrop-filter: blur(8px) !important;
-        -webkit-backdrop-filter: blur(8px) !important;
+        backdrop-filter: blur(var(--blur-mobile)) !important;
+        -webkit-backdrop-filter: blur(var(--blur-mobile)) !important;
     }
 
-    /* Disable 3D transforms on mobile */
-    * {
+    /* Disable 3D transforms on mobile - SCOPED to main content */
+    main *,
+    .hero *,
+    .feature-card,
+    .step-card,
+    .partner-card,
+    .driver-feature-item {
         transform: none !important;
         transform-style: flat !important;
         perspective: none !important;
     }
 
-    /* Simplify animations on mobile */
-    * {
-        animation-duration: 0.2s !important;
-        transition-duration: 0.2s !important;
+    /* Simplify animations on mobile - SCOPED */
+    main *,
+    .hero *,
+    section * {
+        animation-duration: var(--motion-duration-fast) !important;
+        transition-duration: var(--motion-duration-fast) !important;
+        transition-timing-function: ease-out !important;
     }
 
     /* Disable parallax on mobile */
@@ -36,7 +58,7 @@
         display: none !important;
     }
 
-    /* Mobile Polish */
+    /* Mobile Typography Polish */
     .hero-title {
         font-size: 2.5rem !important;
     }
@@ -63,7 +85,9 @@
     }
 }
 
-/* Use GPU acceleration wisely */
+/* ============================================
+   GPU Acceleration (Desktop)
+   ============================================ */
 .feature-card,
 .driver-feature-item,
 .partner-card,
@@ -74,34 +98,90 @@
     backface-visibility: hidden;
 }
 
-/* Optimize hover states */
+/* Optimize hover states - prep GPU layer */
 .feature-card:hover,
 .driver-feature-item:hover,
 .partner-card:hover {
     will-change: transform, box-shadow;
 }
 
-/* Remove will-change after animation */
+/* Remove will-change after interaction - prevent memory leaks */
 .feature-card:not(:hover),
 .driver-feature-item:not(:hover),
 .partner-card:not(:hover) {
     will-change: auto;
 }
 
-/* Reduce repaints */
+/* Reduce navbar repaints */
 .navbar {
     will-change: transform;
     transform: translateZ(0);
 }
 
-/* Optimize images */
+/* ============================================
+   Image Optimization
+   ============================================ */
 img {
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
 }
 
-/* Lazy load off-screen content */
+/* ============================================
+   Lazy Rendering for Offscreen Content
+   ============================================ */
 .lazy-section {
     content-visibility: auto;
     contain-intrinsic-size: 500px;
+}
+
+/* ============================================
+   Accessibility: Focus Indicators
+   ============================================ */
+:focus-visible {
+    outline: 2px solid var(--focus-ring-color);
+    outline-offset: 2px;
+}
+
+/* Remove default outline for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ============================================
+   Accessibility: Respect Motion Preferences
+   ============================================ */
+@supports (prefers-reduced-motion: reduce) {
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+        
+        /* Disable parallax and floating effects */
+        [data-parallax],
+        .ambient-glow,
+        .loader-spinner {
+            animation: none !important;
+        }
+        
+        /* Disable hover transforms */
+        .feature-card:hover,
+        .driver-feature-item:hover,
+        .partner-card:hover,
+        .step-card:hover {
+            transform: none !important;
+        }
+    }
+}
+
+/* Fallback for browsers without @supports */
+@media (prefers-reduced-motion: reduce) {
+    .ambient-glow,
+    .loader-spinner {
+        animation: none !important;
+    }
 }
